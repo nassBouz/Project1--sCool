@@ -1,8 +1,8 @@
-let mongoose = require('mongoose'),
+const mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
-  
-let SchoolSchema = new Schema({
+
+const SchoolSchema = new Schema({
      schoolName: String,
      aboutSchool: String,
      schoolAddress: String,
@@ -11,8 +11,9 @@ let SchoolSchema = new Schema({
      // create a function to avg the user rating
      userRating: Number,
      schoolImg:String,
-     // we need to break down the address to cityName, county, state
+     // we need to break down the address to cityName, county or school district, state
+     // contact information (phoneNumber, email@ or a link to their)
 });
 
-var School = mongoose.model('School', SchoolSchema);
+const School = mongoose.model('School', SchoolSchema);
 module.exports = School;

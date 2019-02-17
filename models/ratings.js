@@ -1,12 +1,12 @@
-let mongoose = require('mongoose'),
+const mongoose = require('mongoose'),
   Schema = mongoose.Schema;
   // import School and User 
   School = require('./school');
   User = require('./user')
 
 
-let RatingsSchema = new Schema({
-    // add a limitation of the number rating to be 0-10 / 0-100
+const RatingsSchema = new Schema({
+    // add a limitation of the number rating to be 1-5
      rating: Number,
      comments: String,
      // assign Now() in the form
@@ -16,5 +16,5 @@ let RatingsSchema = new Schema({
      schoolId:{type:Schema.Types.ObjectId, ref:'School'}
 });
 
-var Ratings = mongoose.model('Ratings', RatingsSchema);
+const Ratings = mongoose.model('Ratings', RatingsSchema);
 module.exports = Ratings;
