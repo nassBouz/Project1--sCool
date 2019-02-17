@@ -54,22 +54,21 @@ app.get('/api', (req, res) => {
     baseUrl: "", //Include heroku base URL
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
-      {method: "GET", path: "/api/user", adescription: "Get all users"},
-      {method: "GET", path: "/api/user:id", adescription: "Get 1 user"},
-      {method: "POST", path: "/api/user", description: "Create a new user"},
-      {method: "PUT", path: "/api/user/:id", description: "Update a user"},
-      {method: "DELETE", path: "/api/user/:id", description: "Delete a user"},
-      {method: "GET", path: "/api/school", description: "Get all schools"},
-      {method: "GET", path: "/api/school:id", description: "Get 1 school"},
-      {method: "POST", path: "/api/school", description: "Create a new school"},
-      {method: "PUT", path: "/api/school/:id", description: "Update a school"},
-      {method: "DELETE", path: "/api/school/:id", description: "Delete a school"},
+      {method: "GET", path: "/api/users", adescription: "Get all users"},
+      {method: "GET", path: "/api/users/:id", adescription: "Get 1 user"},
+      {method: "POST", path: "/api/users", description: "Create a new user"},
+      {method: "PUT", path: "/api/users/:id", description: "Update a user"},
+      {method: "DELETE", path: "/api/users/:id", description: "Delete a user"},
+      {method: "GET", path: "/api/schools", description: "Get all schools"},
+      {method: "GET", path: "/api/schools/:id", description: "Get 1 school"},
+      {method: "POST", path: "/api/schools", description: "Create a new school"},
+      {method: "PUT", path: "/api/schools/:id", description: "Update a school"},
+      {method: "DELETE", path: "/api/schools/:id", description: "Delete a school"},
       {method: "GET", path: "/api/ratings", description: "Get all ratings"},
       {method: "GET", path: "/api/ratings/:id", description: "Get 1 rating"},
       {method: "POST", path: "/api/ratings", description: "Create a new ratings"},
       {method: "PUT", path: "/api/ratings/:id", description: "Update a ratings"},
       {method: "DELETE", path: "/api/ratings/:id", description: "Delete a ratings"}
-      
     ]
   })
 });

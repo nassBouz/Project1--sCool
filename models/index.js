@@ -5,7 +5,7 @@ mongoose.connect( process.env.MONGODB_URI || "mongodb://localhost/PROJECT1--sCoo
 
 
 module.exports = {
-    School : require("./school.js"),
-    ratings : require("./ratings.js"),
-    user: require('./user.js')
+    Schools: require("./school.js"),
+    Ratings : require("./ratings.js"),
+    Users: require('./user.js')
 }
