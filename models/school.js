@@ -15,5 +15,11 @@ const SchoolSchema = new Schema({
      // contact information (phoneNumber, email@ or a link to their)
 });
 
+<<<<<<< HEAD
 const School = mongoose.model('School', SchoolSchema);
 module.exports = School;
+=======
+var School = mongoose.model('School', SchoolSchema);
+module.exports = School;
+
+>>>>>>> 6073581aa0975805036b77d1350ac1675e09b3db
