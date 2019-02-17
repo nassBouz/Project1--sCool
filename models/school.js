@@ -1,8 +1,7 @@
 let mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
-
-
+  
 let SchoolSchema = new Schema({
      schoolName: String,
      aboutSchool: String,
