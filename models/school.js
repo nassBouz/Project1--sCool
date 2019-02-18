@@ -4,15 +4,24 @@ const Schema = mongoose.Schema;
 
 const SchoolSchema = new Schema({
      schoolName: String,
+     /// we need school grade ???
      aboutSchool: String,
-     schoolAddress: String,
+     schoolAddress: {
+          streetAddress:String,
+          city:String,
+          state:String,
+          zipCode:Number
+     },
      district: String,
      academicRating: Number,
-     // create a function to avg the user rating
+     // is this a foreign key (ratiingsId??????)
      userRating: Number,
      schoolImg:String,
-     // we need to break down the address to cityName, county or school district, state
-     // contact information (phoneNumber, email@ or a link to their)
+     contactInfo: {
+          //number or String???
+          phoneNumber: String,
+          emailAddress: String
+     }
 });
 
 const School = mongoose.model('School', SchoolSchema);
