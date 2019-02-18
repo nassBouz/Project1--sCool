@@ -1,0 +1,153 @@
+* {
+    margin: 0 auto;
+    padding: 0 auto;
+    border: 1px solid black;
+    font-size: 24px;
+}
+
+html, body {
+    width: 99%;
+    height: 99%;
+    border: none;
+}
+
+/* Header */
+
+header {
+    height: 5%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.header-logo {
+    display: flex;
+}
+
+header nav {
+    margin: 0 auto;
+    position: absolute;
+    right: 2.5%;
+    margin-top: .4%;
+}
+
+header h1 {
+    text-align: left;
+    position: absolute;
+    left: 2.5%;
+    margin-top: .4%;
+}
+
+header a {
+    text-align: right;
+}
+
+
+
+
+
+/* Main */
+
+main {
+    display: flex;
+    height: 80%;
+    margin: 5% 0;
+}
+
+.search-bar {
+    width: 25%;
+    height: 100%;
+}
+
+.listings-section {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+    /* Aside */
+
+    /*  */
+
+    /* Listing Section */
+
+    .listings-wrapper {
+        height: 90%;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .listing {
+        height: 20%;
+        width: 80%;
+        margin: 1% auto;
+        display: flex;
+    }
+
+    .listings-section p {
+        text-align: center;
+    }
+
+        /* listings */
+
+        .listing-details {
+            width: 60%;
+            height: 100%;
+            display: flex;
+            flex-grow: 1 2;
+        }
+
+        .listing-details img {
+            max-width: 100%;
+            height: 5em;
+        }
+
+        .listing-rating {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30%;
+        }
+
+        .listing-text {
+            width: 60%;
+        }
+
+        .user-rating {
+            height: 20%;
+            width: auto;
+    
+        }
+
+        .star-wrapper img {
+            height: 1em;
+            width: auto;
+        }
+
+        h3 {
+            font-size: .75em;
+            text-align: center;
+        }
+
+    /*  */
+
+/* Footer */
+
+footer {
+    width: 100%;
+    height: 3%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+footer p {
+    text-align: center;
+    border: none;
+}
