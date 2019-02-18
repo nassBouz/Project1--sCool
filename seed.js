@@ -15,13 +15,12 @@ const mySchools = [{
      academicRating: 9,
      // create a function to avg the user rating
      userRating: 5,
-     schoolImg:String,
+     schoolImg:"some picture",
      contactInfo: {
           phoneNumber: "(925) 687-1700",
           emailAddress:"www.mdusd.org"
      }
 }]
-
   // remove all records that match {} -- which means remove ALL records
   db.Schools.deleteMany({}, function(err, schools){
     if(err) {
@@ -33,7 +32,31 @@ const mySchools = [{
       db.Schools.create(mySchools, function(err, schools){
         if (err) { return console.log('err', err); }
         console.log("created", schools.length, "schools");
-        process.exit();s
+        console.log(schools);
+        //if exit here will not continue the rest of the program
+        // process.exit();
+      });
+    }
+  });
+
+  const myUsers = [{
+    userName:"yanniB",
+    password: "touratoura",
+    createdUserDate: 1-1-20019,
+    Avatar: "something here"
+  }];
+  db.Users.deleteMany({}, function(err, users){
+    if(err) {
+      console.log('Error occurred in remove', err);
+    } else {
+      console.log('removed all users from the users list');
+  
+      // create new records based on the array books_list
+      db.Users.create(myUsers, function(err, users){
+        if (err) { return console.log('err', err); }
+        console.log("created", users.length, "users");
+        console.log(users);
+        process.exit();
       });
     }
   });
