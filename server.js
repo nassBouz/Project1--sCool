@@ -121,7 +121,18 @@ app.put('/api/users/:id',(req,res) => {
     });
   });
 
-
+  // CRUD FOR SCHOOLS
+  app.get('/api/schools', (req, res) => {
+    db.Schools.find({}, (error, schools) => {
+      res.json(schools);
+    }); 
+  });
+ 
+  app.get('/api/schools/:id', (req, res) => {
+    db.Schools.find({_id: req.params.id}, (error, schools) => {
+      res.json(schools);
+    }); 
+  });
 /**********
  * SERVER *
  **********/
