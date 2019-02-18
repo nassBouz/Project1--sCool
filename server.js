@@ -73,10 +73,53 @@ app.get('/api', (req, res) => {
   })
 });
 
+// CRUD FOR USERS
+app.get('/api/users', (req, res) => {
+  db.Users.find({}, (error, users) => {
+    res.json(users);
+  }); 
+});
 
-/*---------
- CRUD pending
- **********/
+app.get('/api/users/:id', (req, res) => {
+  db.Users.find({_id: req.params.id}, (error, users) => {
+    res.json(users);
+  }); 
+});
+
+app.post('/api/users', (req, res) => {
+  var newUser = new db.Users({
+    userName: req.body.userName,
+    password: req.body.password,
+    createdUserDate: req.body.createdUserDate,
+    avatar: req.body.avatar
+  });
+  newUser.save((error, user) => {
+    res.json(user);
+  });
+});
+
+app.put('/api/users/:id',(req,res) => {
+    console.log('update user', req.params);
+    console.log(`the body is${req.body}`);
+    const userId = req.params.id;
+    db.Users.findOneAndUpdate(
+      {_id:userId},
+      req.body,
+      {new: true},
+      (err, updateUser) => {
+        if(err) {throw err;}
+        res.json(updateUser);
+      });
+  });
+  
+  app.delete('/api/users/:id', function (req, res) {
+    const userId = req.params.id;
+    console.log('delete user', userId);
+    db.Users.findOneAndDelete({_id: userId}, (err, deletedUser) => {
+      if(err) { throw err; }
+      res.json(deletedUser);
+    });
+  });
 
 
 /**********
