@@ -21,7 +21,49 @@ const mySchools = [{
           phoneNumber: "(925) 687-1700",
           emailAddress:"www.mdusd.org"
      }
-}]
+
+},
+{
+  schoolName:"Abraham Prep School",
+  aboutSchool: "k-12",
+  schoolAddress: {
+       streetAddress:"530 Kiki Dr",
+       city:"Pleasant Hill",
+       state:"CA",
+       zipCode:94523
+  },
+  district: "Alhambra Unified School District",
+  academicRating: 9,
+  // create a function to avg the user rating
+  userRating: 5,
+  schoolImg:"some picture",
+  contactInfo: {
+       phoneNumber: "(925) 687-1700",
+       emailAddress:"www.mdusd.org"
+  }
+  
+},
+{
+  schoolName:"Lincoln School",
+  aboutSchool: "7-9",
+  schoolAddress: {
+       streetAddress:"530 Kiki Dr",
+       city:"Pleasant Hill",
+       state:"CA",
+       zipCode:94523
+  },
+  district: "Pittsburg Unified School District",
+  academicRating: 9,
+  // create a function to avg the user rating
+  userRating: 5,
+  schoolImg:"some picture",
+  contactInfo: {
+       phoneNumber: "(925) 687-1700",
+       emailAddress:"www.mdusd.org"
+  }
+  
+}
+]
 
   // remove all records that match {} -- which means remove ALL records
   db.Schools.deleteMany({}, (err, schools)=>{
@@ -44,9 +86,16 @@ const mySchools = [{
   const myUsers = [{
     userName:"yanniB",
     password: "touratoura",
-    createdUserDate: 1-1-20019,
-    Avatar: "something here"
-  }];
+    createdUserDate: 10-14-2019,
+    avatar: "something here"
+  },
+  {
+    userName:"Miket",
+    password: "tou",
+    createdUserDate: 09-13-2019,
+    avatar: "something here"
+  }
+];
 
   db.Users.deleteMany({},(err, users)=>{
     if(err) { console.log('Error occurred in remove', err);} 
