@@ -11,6 +11,12 @@ html, body {
     border: none;
 }
 
+main {
+    display: flex;
+    height: 80%;
+    margin: 5% 0;
+}
+
 /* Header */
 
 header {
@@ -44,98 +50,6 @@ header a {
 }
 
 
-
-
-
-/* Main */
-
-main {
-    display: flex;
-    height: 80%;
-    margin: 5% 0;
-}
-
-.search-bar {
-    width: 25%;
-    height: 100%;
-}
-
-.listings-section {
-    width: 70%;
-    height: 100%;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-}
-
-    /* Aside */
-
-    /*  */
-
-    /* Listing Section */
-
-    .listings-wrapper {
-        height: 90%;
-        width: 90%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .listing {
-        height: 20%;
-        width: 80%;
-        margin: 1% auto;
-        display: flex;
-    }
-
-    .listings-section p {
-        text-align: center;
-    }
-
-        /* listings */
-
-        .listing-details {
-            width: 60%;
-            height: 100%;
-            display: flex;
-            flex-grow: 1 2;
-        }
-
-        .listing-details img {
-            max-width: 100%;
-            height: 5em;
-        }
-
-        .listing-rating {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 30%;
-        }
-
-        .listing-text {
-            width: 60%;
-        }
-
-        .user-rating {
-            height: 20%;
-            width: auto;
-    
-        }
-
-        .star-wrapper img {
-            height: 1em;
-            width: auto;
-        }
-
-        h3 {
-            font-size: .75em;
-            text-align: center;
-        }
-
-    /*  */
 
 /* Footer */
 
