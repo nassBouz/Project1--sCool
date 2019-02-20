@@ -15,6 +15,7 @@
 
   <!-- APPLICATION SCRIPTS -->
   <script src="/scripts/admin.js"></script>
+  <!-- <script src="/scripts/admin.js"></script> -->
 
   <style>
     body {
@@ -144,19 +145,20 @@
                   <form class="form-inline" id="newSchoolForm">
                     <div class="form-group">
                       <label for="school">School Name</label>
-                      <input type="text" class="form-control" name="school" placeholder="School name">
+                      <input type="text" class="form-control" id="schoolName" name="schoolName" placeholder="School name">
+                      <input type="hidden" id="schoolid" name="schoolid">
                     </div>
                     <div class="form-group">
                       <label for="city">City</label>
-                      <input type="text" class="form-control" name="city" placeholder="School city">
+                      <input type="text" class="form-control" id="city" name="city" placeholder="School city">
                     </div>
                     <div class="form-group">
                       <label for="district">District</label>
-                      <input type="text" class="form-control" name="district" placeholder="School district">
+                      <input type="text" class="form-control" id="district" name="district" placeholder="School district">
                     </div>
                     <div class="form-group">
                       <label for="academicRating">Academic Rating</label>
-                      <input type="text" class="form-control" name="district" placeholder="School academic rating">
+                      <input type="text" class="form-control" id="academicRating" name="academicRating" placeholder="School academic rating">
                     </div>
                     <button type="submit" class="btn btn-default">Create school</button>
                   </form>
