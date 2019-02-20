@@ -42,6 +42,10 @@ app.get('/', function homepage(req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
+app.get('/admin', function homepage(req, res) {
+  res.sendFile(__dirname + '/views/admin.html');
+});
+
 /*
  * JSON API Endpoints
  */
@@ -90,7 +94,8 @@ app.post('/api/users', (req, res) => {
   var newUser = new db.Users({
     userName: req.body.userName,
     password: req.body.password,
-    createdUserDate: req.body.createdUserDate,
+    role: req.body.role,
+    createdUserDate: Date(),
     avatar: req.body.avatar
   });
   newUser.save((error, user) => {
@@ -193,37 +198,58 @@ app.put('/api/users/:id',(req,res) => {
       res.json(ratings);
     }); 
   });
+
 //create new rating /comment
-  app.post('/api/ratings/', (req, res) => {
+  app.post('/api/ratings', (req, res) => {
     let newRating = new db.Ratings({
       rating: req.body.rating,
       comments: req.body.comments,
       ratingDate: req.body.ratingDate,
     });
     // find the school from  the req.body
-    db.Schools.findOne({schoolName : req.body.school}), (err,school)=>{
-      if(err){return console.log(err);}
-    }
-    // if school doesnt exixt dont create one, return error
-    if(schoolId == null){
-      console.log("school not in the db")
-    }
-    else {
-      createNewRating(newRating, school, res);
-    }
-    newRating.save((error, rating) => {
-      res.json(rating);
-    });
+    db.Schools.findOne({_id : req.body.school}, (err,foundschool)=>{
+      if(err){console.log(err);}
+      newRating.school = foundschool;
+    
+      db.Users.findOne({ _id: req.body.user}, (err, foundUser) => {
+        if (err) { console.log(err) }
+        newRating.user = foundUser;
+        newRating.save((err, savedRating) => {
+          if (err) { console.log(err) }
+          console.log('saved!!!');
+          console.log(savedRating);
+          
+          res.json(newRating);
+        });
+      });
+   });
   });
 
-  function createNewRating(rating, school, res){
-    rating.schoolId = schoolId;
-    rating.save(function(err, rating){
-      if(err){return console.log("save error: "+ err);}
-      console.log("saved", rating.rating);
-      res.json(rating);
+/// update rating
+app.put('api/ratings/:id',(req, res) => {
+  console.log('ratings update ', req.params);
+  console.log(`the body is${req.body}`);
+  let ratingId = req.params.id;
+
+  db.Ratings.findOneAndUpdate(
+    {_id:ratingId},
+    req.body,
+    {new: true},
+    (err, updateRating) => {
+      if(err) {throw err;}
+      res.json(updateRating);
     });
-  }
+})
+
+app.delete('/api/ratings/:id', (req, res) =>{
+  const ratingId = req.params.id;
+  console.log('delete rating', ratingId);
+  db.Ratings.findOneAndDelete({_id: ratingId}, (err, deletedRating) => {
+    if(err) { throw err; }
+    res.json(deletedRating);
+  });
+});
+
 
 
 /**********

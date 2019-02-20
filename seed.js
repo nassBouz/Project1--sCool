@@ -66,12 +66,14 @@ const myUsers = [
   {
     userName:"yanniB",
     password: "touratoura",
+    role: "admin",
     createdUserDate: 10-14-2019,
     avatar: "something here"
   },
   {
     userName:"Miket",
     password: "tou",
+    role: "user",
     createdUserDate: 09-13-2019,
     avatar: "something here"
   }

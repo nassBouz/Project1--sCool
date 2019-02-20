@@ -1,69 +1,50 @@
+// wait for DOM to load before running JS
 $(document).ready(function() {
 
-    // AJAX call to get all schools
-    function showSchoolReviews() {
-
-        $('#schoolsTable tbody').empty();
-        $.ajax({
-            method: "GET",
-            url: '/api/schools',
-            success: function(response){
-              console.log("success got school review data", response);
-        
-              response.forEach(row => {
-                $('#schoolsTable').append('<tr><td>' + row.school + '</td><td>' + row.user + '</td><td>' + row.ratings+ '</td><td>' 
-                + '<button id="' + row._id + '" class="btn btn-warning editbook">Edit</button>&nbsp;'
-                + '<button id="' + row._id + '" class="btn btn-danger deletebook">Delete</button></td>'
-                +'</tr>');
-              });
-        
-            },
-            error: function(error) {
-                console.log("an error occurred", error);
-            }
-          });
+    // base API route
+    var baseUrl = '/api/schools';
+  
+    // array to hold schools data from API
+    var allSchools = [];
+  
+    // element to display list of tschools
+    var $schoolsList = $('.listing-details');
+  
+    // form to create new todo
+    //var $createSchool = $('#create-todo');
+  
+    // compile handlebars template
+    var source = $('#schools-template').html();
+    var template = Handlebars.compile(source);
+  
+    // helper function to render all todos to view
+    // note: we empty and re-render the collection each time our todo data changes
+    function render() {
+      // empty existing todos from view
+      $schoolsList.empty();
+  
+      // pass `allTodos` into the template function
+      var schoolsHtml = template({ schools: allSchools });
+  
+      // append html to the view
+      $schoolsList.append(schoolsHtml);
+    };
+  
+    // GET all schools on page load
+    $.ajax({
+      method: "GET",
+      url: baseUrl,
+      success: function onIndexSuccess(json) {
+        console.log(json);
+  
+        // set `allTodos` to todo data (json.data) from API
+        allschool = json.schools;
+  
+        // render all todos to view
+        render();
       }
+    });
+  
     
-      showSchoolReviews();
-    
-      $('#newSchoolReviewsForm').submit(function(e) {
-        e.preventDefault();
-    
-        $.ajax({
-            method: "POST",
-            url: '/api/schools',
-            data: $(this).serialize(), 
-            success: function(result) {
-                showSchoolReviews();
-                console.log(result);
-            },
-            error: function(error) {
-                console.log(error);
-            }
-        });
-      });
-    
-    
-      $(document).on('click', '.deletebook', function() {
-          if(confirm('Are you sure you want to delete this school review?')) {                
-            $.ajax({
-                method: "DELETE",
-                url: '/api/schools/' + $(this)[0].id,
-                data: $(this).serialize(),
-                success: function(result) {
-                    showSchoolReviews();
-                    console.log(result);
-                },
-                error: function(error) {
-                    console.log(error);
-                }
-            });
-            console.log('Deleted', $(this)[0].id);
-          }
-      });
-    
-      $(document).on('click', '.editSchoolReview', function() {
-        alert('edit');
-    });// ajax func
-    
-});//ready func
+  
+  });
