@@ -251,7 +251,6 @@ app.delete('/api/ratings/:id', (req, res) =>{
 });
 
 
-
 /**********
  * SERVER *
  **********/

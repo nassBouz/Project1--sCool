@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 // wait for DOM to load before running JS
 $(document).ready(function() {
 
+=======
+
+// wait for DOM to load before running JS
+$(document).ready(function() {
+
+>>>>>>> bf719a57bd8c70e0f47be2d135119037266b1a88
     // base API route
     var baseUrl = '/api/schools';
   
@@ -47,4 +54,8 @@ $(document).ready(function() {
   
     
   
+<<<<<<< HEAD
   });
+=======
+  });
+>>>>>>> bf719a57bd8c70e0f47be2d135119037266b1a88
