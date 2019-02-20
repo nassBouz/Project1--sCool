@@ -92,7 +92,7 @@ footer p {
 
 /* Signin */
 
-#signin-lightbox {
+#lightbox {
     z-index: 10;
     position: fixed;
     margin: 0 auto;

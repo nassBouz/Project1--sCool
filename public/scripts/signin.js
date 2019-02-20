@@ -1,8 +1,9 @@
 $(document).ready(function () {
     
+    // signin / signup lightbox, on click of "login" fades in the sign in bar.
     $('#login').on('click', function(e) {
-        $('#signin-lightbox').empty();
-        $('#signin-lightbox').html(`
+        $('#lightbox').empty();
+        $('#lightbox').html(`
             <div id="signin-wrapper">
                 <a id="signin-close" href="#">X</a>
                 <form>
@@ -13,19 +14,26 @@ $(document).ready(function () {
                 </form>
             <a href="#">Sign Up</a>
         </div>`)
-        $('#signin-lightbox').fadeToggle();
+        $('#lightbox').fadeToggle();
+        
 
         $('#signin-close').on('click', function(e) {
-            $('#signin-lightbox').fadeToggle();
-            console.log("beep")
+            $('#lightbox').fadeToggle();
+        });
+    });
+
+    // about lightbox, brings up the "about us" section
+        $('#about').on('click', function(e) {
+            $('#lightbox').empty();
+            $('#lightbox').html(`
+                <div id="signin-wrapper">
+                    <a id="signin-close" href="#">X</a>
+                    <p>About us!</p>
+            </div>`)
+            $('#lightbox').fadeToggle();
+
+            $('#signin-close').on('click', function(e) {
+                $('#lightbox').fadeToggle();
         });
     });
 });
-
-// $(document).on('click',function(e) {
-//     if (!$(e.target).closest $('#signin-wrapper').closest()) {
-//         $('#signin-lightbox').fadeToggle().empty();
-//         console.log("beep")
-//         }
-//     })
-// })
