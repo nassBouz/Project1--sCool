@@ -1,9 +1,23 @@
 * {
     margin: 0 auto;
     padding: 0 auto;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     font-size: 24px;
+    font-family: 'Noto Serif', serif;
+    font-family: 'Oxygen', sans-serif;
 }
+
+/* Colorscheme
+    Primary Color / Blue
+    rgb 0,109,178 / hex #006DB2
+
+    Secondary Color / Gold
+    rgb 178,104,0 / hex #B26800
+
+    Text/Accent Color / Dark Slate
+    rgb 73,76,97 / hex #494C61
+
+*/
 
 html, body {
     width: 99%;
@@ -20,11 +34,18 @@ main {
 /* Header */
 
 header {
-    height: 5%;
+    height: 7.5%;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
+    background-color: #006DB2;
+    z-index: 5;
+}
+
+header * {
+    color: white;
+    text-decoration: none;
 }
 
 .header-logo {
@@ -43,6 +64,7 @@ header h1 {
     position: absolute;
     left: 2.5%;
     margin-top: .4%;
+    font-family: 'Noto Serif', serif;
 }
 
 header a {
@@ -55,13 +77,15 @@ header a {
 
 footer {
     width: 100%;
-    height: 3%;
+    height: 5%;
     position: fixed;
     left: 0;
     bottom: 0;
+    background-color: #B26800
 }
 
 footer p {
     text-align: center;
     border: none;
+    color: white;
 }

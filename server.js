@@ -194,12 +194,11 @@ app.put('/api/users/:id',(req,res) => {
     }); 
   });
 //create new rating /comment
-  app.post('/api/ratings', (req, res) => {
+  app.post('/api/ratings/', (req, res) => {
     let newRating = new db.Ratings({
       rating: req.body.rating,
       comments: req.body.comments,
       ratingDate: req.body.ratingDate,
-      // userId:"yanniB" ,
     });
     // find the school from  the req.body
     db.Schools.findOne({schoolName : req.body.school}), (err,school)=>{
