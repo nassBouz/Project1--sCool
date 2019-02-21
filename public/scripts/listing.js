@@ -14,7 +14,7 @@ $(document).ready(function () {
         url: '/api/schools/' + listingUrl,
         success: function(res) {
             console.log(res[0].schoolName)
-            let address = `${res[0].schoolAddress.streetAddress}, ${res[0].schoolAddress.city}, ${res[0].schoolAddress.state} - ${res[0].schoolAddress.zipCode}`;
+            let address = `${res[0].schoolAddress.streetAddress}, ${res[0].schoolAddress.city}, ${res[0].schoolAddress.state} ${res[0].schoolAddress.zipCode}`;
             $('.about').html(
                 `<h2>${res[0].schoolName}</h2>
                 <p>${res[0].aboutSchool}</p>`)
@@ -25,15 +25,43 @@ $(document).ready(function () {
                 `<p>${address}</p>`
             )
             document.title = res[0].schoolName
-    
-            function initMap() {
-                map = new google.maps.Map(document.getElementById('map'), {
-                  center: {lat: -34.397, lng: 150.644},
-                  zoom: 8
-                });
-            }
             
-            initMap();
+            var geocoder = new google.maps.Geocoder();
+            geocoder.geocode( { 'address': address}, function(results, status) {
+
+                if (status == google.maps.GeocoderStatus.OK) {
+                    var latitude = results[0].geometry.location.lat();
+                    var longitude = results[0].geometry.location.lng();
+            
+            
+                    initialize(latitude,longitude);
+            
+                    } 
+        
+                }); 
+    
+            function initialize(latitude,longitude) {
+                var latlng = new google.maps.LatLng(latitude, longitude);
+                    map = new google.maps.Map(document.getElementById('map'), {
+                    center: latlng,
+                    zoom: 12
+                    });
+
+                var myOptions = {
+                zoom: 12,
+                center: latlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                mapTypeControl: false
+                };
+
+                var map = new google.maps.Map(document.getElementById("map"),myOptions);
+
+                var marker = new google.maps.Marker({
+                position: latlng, 
+                map: map, 
+                    title:`${res[0].schoolName}`
+                }); 
+            }
         },
         error: function(err) {
             console.log("beep boop, failure")
