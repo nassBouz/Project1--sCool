@@ -65,6 +65,8 @@ app.get('/api', (req, res) => {
       {method: "DELETE", path: "/api/users/:id", description: "Delete a user"},
       {method: "GET", path: "/api/schools", description: "Get all schools"}, //Nassima
       {method: "GET", path: "/api/schools/:id", description: "Get 1 school"},
+      //////added this one !!!!!! 
+      {method: "GET", path: "/api/schools/:schoolName", description: "Get 1 school"},
       {method: "POST", path: "/api/schools", description: "Create a new school"},
       {method: "PUT", path: "/api/schools/:id", description: "Update a school"},
       {method: "DELETE", path: "/api/schools/:id", description: "Delete a school"},
@@ -188,7 +190,9 @@ app.put('/api/users/:id',(req,res) => {
   // ////////////////////////////RATINGS CRUD 
 
   app.get('/api/ratings', (req, res) => {
-    db.Ratings.find({}, (error, ratings) => {
+    db.Ratings.find({})
+    .populate('user')
+    .exec((error, ratings) => {
       res.json(ratings);
     }); 
   });
@@ -201,8 +205,9 @@ app.put('/api/users/:id',(req,res) => {
 
 //create new rating /comment
   app.post('/api/ratings', (req, res) => {
+    console.log(req.body);
     let newRating = new db.Ratings({
-      rating: req.body.rating,
+      rating: req.body.userRating,
       comments: req.body.comments,
       ratingDate: req.body.ratingDate,
     });
@@ -210,8 +215,7 @@ app.put('/api/users/:id',(req,res) => {
     db.Schools.findOne({_id : req.body.school}, (err,foundschool)=>{
       if(err){console.log(err);}
       newRating.school = foundschool;
-    
-      db.Users.findOne({ _id: req.body.user}, (err, foundUser) => {
+      db.Users.findOne({ userName: req.body.userRatingName}, (err, foundUser) => {
         if (err) { console.log(err) }
         newRating.user = foundUser;
         newRating.save((err, savedRating) => {
@@ -259,4 +263,3 @@ app.delete('/api/ratings/:id', (req, res) =>{
 app.listen(process.env.PORT || 3000, () => {
     console.log('Express server is up and running on http://localhost:3000/');
   });
-

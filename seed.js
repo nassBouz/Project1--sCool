@@ -59,7 +59,26 @@ const mySchools = [
       phoneNumber: "(925) 687-1700",
       emailAddress:"www.mdusd.org"
     }
-  }
+  },
+  {
+    schoolName: "Petite Academy School",
+    aboutSchool: "k-12",
+    schoolAddress: {
+    streetAddress:"530 Kiki Dr",
+    city:"Concord",
+    state:"CA",
+    zipCode:94523
+    },
+    district: "Mount Diablo Unified School District",
+    academicRating: 6,
+    // create a function to avg the user rating
+    userRating: 3,
+    schoolImg:"some picture",
+    contactInfo: {
+    phoneNumber: "(925) 687-1788",
+    emailAddress:"www.mdusd.org"
+    }
+  },
 ];
 
 const myUsers = [
