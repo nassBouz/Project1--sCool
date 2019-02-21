@@ -8,6 +8,7 @@ let listingUrl = splitUrl[splitUrl.length - 1]
 // console.log(splitUrl[splitUrl.length - 1])
 
 $(document).ready(function () {
+
     $.ajax({
         method: 'GET',
         url: '/api/schools/' + listingUrl,
@@ -23,6 +24,16 @@ $(document).ready(function () {
             $('.address').html(
                 `<p>${address}</p>`
             )
+            document.title = res[0].schoolName
+    
+            function initMap() {
+                map = new google.maps.Map(document.getElementById('map'), {
+                  center: {lat: -34.397, lng: 150.644},
+                  zoom: 8
+                });
+            }
+            
+            initMap();
         },
         error: function(err) {
             console.log("beep boop, failure")
