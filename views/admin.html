@@ -15,6 +15,7 @@
 
   <!-- APPLICATION SCRIPTS -->
   <script src="/scripts/admin.js"></script>
+  <!-- <script src="/scripts/admin.js"></script> -->
 
   <style>
     body {
@@ -50,7 +51,7 @@
           <h1>Admin Page</h1>
 <!-- Users -->  
           <div class="container"></div>
-              <h2 class="text-center">Users</h2>
+              <h2 class="text-center"><a name="users">Users</a></h2>
               <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                   <form class="form-inline" id="newUserForm">
@@ -68,7 +69,7 @@
                         <input type="text" class="form-control" id="avatar" name="avatar" placeholder="User avatar">
                       </div>
                     
-                    <button type="submit" class="btn btn-default">Create user</button>
+                    <button type="submit" class="btn btn-success">Create user</button>
                   </form>
                   <div id='userTarget'>
                       <div id="userList" >
@@ -92,14 +93,19 @@
 
 <!-- Rating -->
             <div class="container">
-            <h2 class="text-center">Ratings</h2>
+            <h2 class="text-center"><a name="ratings">Ratings</a></h2>
             <div class="row">
               <div class="col-md-8 col-md-offset-2">
                 <form class="form-inline" id="newRatingForm">
                   <div class="form-group">
                     <label for="user">User</label>
-                    <input type="text" class="form-control" id="userRatingName" name="userRatingName" placeholder="User name">
-                    <input type="hidden" id="user_ratingid" name="user_ratingid">                  
+                    <input type="text" class="form-control" id="userRatingName" name="userRatingName" placeholder="User name">                    
+                    <input type="hidden" id="user_ratingid" name="user_ratingid">
+                  </div>
+
+                  <div class="form-group">
+                      <label for="school">SchoolID</label>
+                  <input type="text" id="school" name="school" value="5c6dd5887c3a478d7a6e935e"> 
                   </div>
                   <div class="form-group">
                     <label for="userRating">User Rating</label>
@@ -113,7 +119,7 @@
                     <label for="comments">Comments</label>
                     <input type="text" class="form-control" id="comments" name="comments" placeholder="Comments">
                   </div>
-                  <button type="submit" class="btn btn-default">Create rating</button>
+                  <button type="submit" class="btn btn-success">Create rating</button>
                 </form>
                 <div id='userTarget'>
                     <div id="userList" >
@@ -138,27 +144,28 @@
 
 <!-- Schools -->  
           <div class="container">
-              <h2 class="text-center">Schools</h2>
+              <h2 class="text-center"><a name="schools">Schools</a></h2>
               <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                   <form class="form-inline" id="newSchoolForm">
                     <div class="form-group">
                       <label for="school">School Name</label>
-                      <input type="text" class="form-control" name="school" placeholder="School name">
+                      <input type="text" class="form-control" id="schoolName" name="schoolName" placeholder="School name">
+                      <input type="hidden" id="schoolid" name="schoolid">
                     </div>
                     <div class="form-group">
                       <label for="city">City</label>
-                      <input type="text" class="form-control" name="city" placeholder="School city">
+                      <input type="text" class="form-control" id="city" name="city" placeholder="School city">
                     </div>
                     <div class="form-group">
                       <label for="district">District</label>
-                      <input type="text" class="form-control" name="district" placeholder="School district">
+                      <input type="text" class="form-control" id="district" name="district" placeholder="School district">
                     </div>
                     <div class="form-group">
                       <label for="academicRating">Academic Rating</label>
-                      <input type="text" class="form-control" name="district" placeholder="School academic rating">
+                      <input type="text" class="form-control" id="academicRating" name="academicRating" placeholder="School academic rating">
                     </div>
-                    <button type="submit" class="btn btn-default">Create school</button>
+                    <button type="submit" class="btn btn-success">Create school</button>
                   </form>
                   <div id='schoolTarget'>
                       <div id="schoolList" >

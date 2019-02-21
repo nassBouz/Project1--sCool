@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
 
   /**********
@@ -28,7 +29,6 @@ $(document).ready(function() {
 
 
   function showSchoolsNameCity(sName, sCity) {
-  
     $('#schoolTable tbody').empty();
     $.ajax({
         method: 'GET',
@@ -45,7 +45,6 @@ $(document).ready(function() {
             console.log("response for schools", response);
             }
           });
-    
         },
         error: function(error) {
             console.log("an error occurred", error);
@@ -106,3 +105,4 @@ $(document).ready(function() {
         //   });
         // }
       })
+

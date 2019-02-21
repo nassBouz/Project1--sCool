@@ -55,11 +55,11 @@ aside {
     }
 
     .listings-wrapper:first-child {
-        margin-top: 7.5%;
+        margin-top: 7.5vw;
     }
     
     .listings-wrapper:last-child {
-        margin-bottom: 5%;
+        margin-bottom: 5vw;
     }
 
     .listing {

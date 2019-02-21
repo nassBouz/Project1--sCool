@@ -120,8 +120,12 @@ $(document).ready(function() {
               console.log("success got data response for ratings", response);
         
               response.forEach(row => {
-                $('#ratingTable').append('<tr><td>' + row.user + '</td><td>' + row.rating + '</td><td>' + row.ratingDate + '</td><td>' 
-                + '<tr><td>' + row.comments + '<tr><td>' + '<tr><td>'
+                  let username = 'No Current User Matched';
+                  if(row.user) {
+                      username = row.user.userName;
+                  };
+                $('#ratingTable').append('<tr><td>' + username + '</td><td>' + row.rating + '</td><td>' + row.ratingDate + '</td>'
+                + '<td>' + row.comments + '</td> <td>'
                 + '<button id="' + row._id + '" class="btn btn-warning editrating">Edit</button>&nbsp;'
                 + '<button id="' + row._id + '" class="btn btn-danger deleterating">Delete</button></td>'
                 +'</tr>');
@@ -156,7 +160,7 @@ $(document).ready(function() {
         } else {
             $.ajax({
                 method: "PUT",
-                url: '/api/ratings/' + $('#user_ratingid').val(),
+                url: '/api/ratings' + $('#user_ratingid').val(),
                 data: $(this).serialize(), 
                 success: function(result) {
                     clearRatingForm();
@@ -173,7 +177,7 @@ $(document).ready(function() {
     
       function clearRatingForm() {
         $('#user_ratingid').val('');
-        $('#userRatingName').val('');
+        $('#userRating').val('');
         $('#ratingDate').val('');
         $('#comments').val('');
       }
@@ -199,11 +203,11 @@ $(document).ready(function() {
     $(document).on('click', '.editrating', function() {     
         $.ajax({
             method: "GET",
-            url: '/api/ratings/' + $(this)[0].id,
+            url: '/api/ratings' + $(this)[0].id,
             success: function(response){
       
-                $('#user_ratingid').val(response[0]._user_ratingid);
-                $('#userRatingName').val(response[0].userRatingName);
+                // $('#user_ratingid').val(response[0]._user_ratingid);
+                $('#userRating').val(response[0].rating);
                 $('#ratingDate').val(response[0].ratingDate);
                 $('#comments').val(response[0].comments);
                   
@@ -219,7 +223,7 @@ $(document).ready(function() {
      **********/
     function showSchools() {
     
-        $('#choolTable tbody').empty();
+        $('#schoolTable tbody').empty();
         $.ajax({
             method: 'GET',
             url: '/api/schools',
@@ -227,10 +231,10 @@ $(document).ready(function() {
               console.log("success got data response for schools", response);
         
               response.forEach(row => {
-                $('#schoolTable').append('<tr><td>' + row.schoolName + '</td><td>' + row.schoolAddress.city + '</td><td>' + row.district + '</td><td>'
-                + '<tr><td>' + row.academicRating + '<tr><td>' 
-                + '<button id="' + row._id + '" class="btn btn-warning edituser">Edit</button>&nbsp;'
-                + '<button id="' + row._id + '" class="btn btn-danger deleteuser">Delete</button></td>'
+                $('#schoolTable').append('<tr><td>' + row.schoolName + '</td><td>' + row.schoolAddress.city + '</td><td>' + row.district + '</td>'
+                + '<td>' + row.academicRating + '</td><td>' 
+                + '<button id="' + row._id + '" class="btn btn-warning editschool">Edit</button>&nbsp;'
+                + '<button id="' + row._id + '" class="btn btn-danger deleteschool">Delete</button></td>'
                 +'</tr>');
               });
         
@@ -246,14 +250,14 @@ $(document).ready(function() {
         e.preventDefault();
     
     
-        if ($('#userid').val() === '') {
+        if ($('#schoolid').val() === '') {
             $.ajax({
                 method: "POST",
-                url: '/api/users',
+                url: '/api/schools',
                 data: $(this).serialize(), 
                 success: function(result) {
-                    clearUserForm();
-                    showUsers();
+                    clearSchoolForm();
+                    showSchools();
                     console.log(result);
                 },
                 error: function(error) {
@@ -263,11 +267,11 @@ $(document).ready(function() {
         } else {
             $.ajax({
                 method: "PUT",
-                url: '/api/users/' + $('#userid').val(),
+                url: '/api/schools/' + $('#schoolid').val(),
                 data: $(this).serialize(), 
                 success: function(result) {
-                    clearUserForm();
-                    showUsers();
+                    clearSchoolForm();
+                    showSchools();
                     console.log(result);
                 },
                 error: function(error) {
@@ -278,21 +282,22 @@ $(document).ready(function() {
     
       });
     
-      function clearUserForm() {
-        $('#userid').val('');
-        $('#userName').val('');
-        $('#role').val('');
-        $('#avatar').val('');
+      function clearSchoolForm() {
+        $('#schoolid').val('');
+        $('#schoolName').val('');
+        $('#city').val('');
+        $('#district').val('');
+        $('#academicRating').val('');
       }
     
-      $(document).on('click', '.deleteuser', function() {
-        if(confirm('Are you sure you want to delete this user?')) {                
+      $(document).on('click', '.deleteschool', function() {
+        if(confirm('Are you sure you want to delete this school')) {                
           $.ajax({
               method: "DELETE",
-              url: '/api/users/' + $(this)[0].id,
+              url: '/api/schools/' + $(this)[0].id,
               data: $(this).serialize(),
               success: function(result) {
-                  showUsers();
+                  showSchools();
                   console.log(result);
               },
               error: function(error) {
@@ -303,16 +308,17 @@ $(document).ready(function() {
         }
     });
     
-    $(document).on('click', '.edituser', function() {     
+    $(document).on('click', '.editschool', function() {     
         $.ajax({
             method: "GET",
-            url: '/api/users/' + $(this)[0].id,
+            url: '/api/schools/' + $(this)[0].id,
             success: function(response){
       
-                $('#userid').val(response[0]._id);
-                $('#userName').val(response[0].userName);
-                $('#role').val(response[0].role);
-                $('#avatar').val(response[0].avatar);
+                $('#schoolid').val(response[0]._id);
+                $('#schoolName').val(response[0].schoolName);
+                $('#city').val(response[0].schoolAddress.city);
+                $('#district').val(response[0].district);
+                $('#academicRating').val(response[0].academicRating);
                   
             },
             error: function(error) {
@@ -320,36 +326,6 @@ $(document).ready(function() {
             }
           });
     });// end of school ajax func
-            // function showUsers() {
-    
-            //     $('#schoolsTable tbody').empty();
-            //     $.ajax({
-            //         method: "GET",
-            //         url: '/api/schools',
-            //         success: function(response){
-            //           console.log("success got school review data", response);
-                
-            //           response.forEach(row => {
-            //             $('#schoolsTable').append('<tr><td>' + row.school + '</td><td>' + row.user + '</td><td>' + row.ratings+ '</td><td>' 
-            //             + '<button id="' + row._id + '" class="btn btn-warning editbook">Edit</button>&nbsp;'
-            //             + '<button id="' + row._id + '" class="btn btn-danger deletebook">Delete</button></td>'
-            //             +'</tr>');
-            //           });
-                
-            //         },
-            //         error: function(error) {
-            //             console.log("an error occurred", error);
-            //         }
-            //       });
-     
-            //   showSchools();       //   }   
-    
-        
-        
-    
-        
-    
-        
     });//ready func
     
     
