@@ -1,11 +1,7 @@
 let url = window.location.href;
 const google_maps = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg"
-
-// console.log(url)
-
 let splitUrl = url.split("/");
 let listingUrl = splitUrl[splitUrl.length - 1]
-// console.log(splitUrl[splitUrl.length - 1])
 
 $(document).ready(function () {
 
@@ -26,7 +22,7 @@ $(document).ready(function () {
             )
             document.title = res[0].schoolName
             
-            // most of this code came from a stack overflow response to the problem, i worked
+            // most of the geocode code came from a stack overflow response to the problem, i worked
             // through it and understand it but didn't create it fully from scratch
             var geocoder = new google.maps.Geocoder();
             geocoder.geocode( { 'address': address}, function(results, status) {
@@ -67,5 +63,9 @@ $(document).ready(function () {
             console.log("beep boop, failure")
             throw err
         }
+    })
+
+    $('#back').on('click', function(e) {
+        location.href = '../'
     })
 });
