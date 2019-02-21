@@ -1,11 +1,32 @@
-var url = window.location.href;
+let url = window.location.href;
+const google_maps = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg"
 
-console.log(url)
+// console.log(url)
 
-var splitUrl = url.split("/");
-console.log(splitUrl[splitUrl.length - 1])
+let splitUrl = url.split("/");
+let listingUrl = splitUrl[splitUrl.length - 1]
+// console.log(splitUrl[splitUrl.length - 1])
 
 $(document).ready(function () {
-    
-    
+    $.ajax({
+        method: 'GET',
+        url: '/api/schools/' + listingUrl,
+        success: function(res) {
+            console.log(res[0].schoolName)
+            let address = `${res[0].schoolAddress.streetAddress}, ${res[0].schoolAddress.city}, ${res[0].schoolAddress.state} - ${res[0].schoolAddress.zipCode}`;
+            $('.about').html(
+                `<h2>${res[0].schoolName}</h2>
+                <p>${res[0].aboutSchool}</p>`)
+            $('.school-img').html(
+                `<img src="../../../../images/placeholder.png">`
+            )
+            $('.address').html(
+                `<p>${address}</p>`
+            )
+        },
+        error: function(err) {
+            console.log("beep boop, failure")
+            throw err
+        }
+    })
 });
