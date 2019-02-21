@@ -120,7 +120,11 @@ $(document).ready(function() {
               console.log("success got data response for ratings", response);
         
               response.forEach(row => {
-                $('#ratingTable').append('<tr><td>' + row.user + '</td><td>' + row.rating + '</td><td>' + row.ratingDate + '</td><td>' 
+                  let username = 'No Current User Matched';
+                  if(row.user) {
+                      username = row.user.userName;
+                  };
+                $('#ratingTable').append('<tr><td>' + username + '</td><td>' + row.rating + '</td><td>' + row.ratingDate + '</td><td>' 
                 + '<tr><td>' + row.comments + '<tr><td>' + '<tr><td>'
                 + '<button id="' + row._id + '" class="btn btn-warning editrating">Edit</button>&nbsp;'
                 + '<button id="' + row._id + '" class="btn btn-danger deleterating">Delete</button></td>'
