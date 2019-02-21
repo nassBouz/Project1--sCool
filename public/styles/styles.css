@@ -128,3 +128,7 @@ footer p {
     text-decoration: none;
     width: 10%;
 }
+
+.failed-login {
+    background-color: red;
+}
