@@ -124,8 +124,8 @@ $(document).ready(function() {
                   if(row.user) {
                       username = row.user.userName;
                   };
-                $('#ratingTable').append('<tr><td>' + username + '</td><td>' + row.rating + '</td><td>' + row.ratingDate + '</td><td>' 
-                + '<tr><td>' + row.comments + '<tr><td>' + '<tr><td>'
+                $('#ratingTable').append('<tr><td>' + username + '</td><td>' + row.rating + '</td><td>' + row.ratingDate + '</td>'
+                + '<td>' + row.comments + '</td> <td>'
                 + '<button id="' + row._id + '" class="btn btn-warning editrating">Edit</button>&nbsp;'
                 + '<button id="' + row._id + '" class="btn btn-danger deleterating">Delete</button></td>'
                 +'</tr>');
@@ -186,7 +186,7 @@ $(document).ready(function() {
         if(confirm('Are you sure you want to delete this rating?')) {                
           $.ajax({
               method: "DELETE",
-              url: '/api/ratings' + $(this)[0].id,
+              url: '/api/ratings/' + $(this)[0].id,
               data: $(this).serialize(),
               success: function(result) {
                   showRatings();
@@ -223,7 +223,7 @@ $(document).ready(function() {
      **********/
     function showSchools() {
     
-        $('#choolTable tbody').empty();
+        $('#schoolTable tbody').empty();
         $.ajax({
             method: 'GET',
             url: '/api/schools',
@@ -231,8 +231,8 @@ $(document).ready(function() {
               console.log("success got data response for schools", response);
         
               response.forEach(row => {
-                $('#schoolTable').append('<tr><td>' + row.schoolName + '</td><td>' + row.schoolAddress.city + '</td><td>' + row.district + '</td><td>'
-                + '<tr><td>' + row.academicRating + '<tr><td>' 
+                $('#schoolTable').append('<tr><td>' + row.schoolName + '</td><td>' + row.schoolAddress.city + '</td><td>' + row.district + '</td>'
+                + '<td>' + row.academicRating + '</td><td>' 
                 + '<button id="' + row._id + '" class="btn btn-warning editschool">Edit</button>&nbsp;'
                 + '<button id="' + row._id + '" class="btn btn-danger deleteschool">Delete</button></td>'
                 +'</tr>');
@@ -267,7 +267,7 @@ $(document).ready(function() {
         } else {
             $.ajax({
                 method: "PUT",
-                url: '/api/schools' + $('#schoolid').val(),
+                url: '/api/schools/' + $('#schoolid').val(),
                 data: $(this).serialize(), 
                 success: function(result) {
                     clearSchoolForm();
@@ -314,10 +314,11 @@ $(document).ready(function() {
             url: '/api/schools/' + $(this)[0].id,
             success: function(response){
       
-                // $('#userid').val(response[0]._id);
+                $('#schoolid').val(response[0]._id);
                 $('#schoolName').val(response[0].schoolName);
                 $('#city').val(response[0].schoolAddress.city);
                 $('#district').val(response[0].district);
+                $('#academicRating').val(response[0].academicRating);
                   
             },
             error: function(error) {
