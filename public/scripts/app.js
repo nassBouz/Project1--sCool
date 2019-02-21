@@ -1,3 +1,4 @@
+let listingId = "test"
 
 $(document).ready(function() {
 
@@ -17,6 +18,24 @@ $(document).ready(function() {
             $('#schoolTable').append('<tr><td>' + row.schoolName + '</td><td>' + row.schoolAddress.city + '</td><td>' + row.district + '</td><td>'
               + row.academicRating + '</td><td>' + row.userRating +'</td><td>'+ '<button id="' + row._id + '" class="btn btn-warning edituser">More Details</button>&nbsp;'
             +'</td></tr>');
+            let target = "#" + row._id
+            let id = row._id
+            // creating the new page based on the onclick event for button
+            $(target).on('click', function(e) {
+              // listingId = row._id
+              // location.href = `/listing`
+              $.ajax({
+                method: 'GET',
+                url: '/api/schools/' + $(this)[0].id,
+                success: function(response) {
+                  location.href = '/listing/' + id;
+                },
+                error: function(error) {
+                  console.log("beep boop failure");
+                }
+              })
+            
+            })
           });
     
         },
@@ -72,6 +91,10 @@ $(document).ready(function() {
             }
           });
         });
+
+        $('#5c6de525a13c3723209388d3').on('click',function(e) {
+          console.log("clicky")
+      })
 
     
         // function calculateRating(idSchool) {

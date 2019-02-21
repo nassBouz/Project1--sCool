@@ -46,6 +46,10 @@ app.get('/listing', function homepage(req, res) {
   res.sendFile(__dirname + '/views/listing.html');
 });
 
+app.get('/listing/:id', function homepage(req, res) {
+  res.sendFile(__dirname + '/views/listing.html');
+});
+
 app.get('/admin', function homepage(req, res) {
   res.sendFile(__dirname + '/views/admin.html');
 });
