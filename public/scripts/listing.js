@@ -26,6 +26,8 @@ $(document).ready(function () {
             )
             document.title = res[0].schoolName
             
+            // most of this code came from a stack overflow response to the problem, i worked
+            // through it and understand it but didn't create it fully from scratch
             var geocoder = new google.maps.Geocoder();
             geocoder.geocode( { 'address': address}, function(results, status) {
 
@@ -43,12 +45,10 @@ $(document).ready(function () {
             function initialize(latitude,longitude) {
                 var latlng = new google.maps.LatLng(latitude, longitude);
                     map = new google.maps.Map(document.getElementById('map'), {
-                    center: latlng,
-                    zoom: 12
                     });
 
                 var myOptions = {
-                zoom: 12,
+                zoom: 13,
                 center: latlng,
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
                 mapTypeControl: false
