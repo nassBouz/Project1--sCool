@@ -17,7 +17,6 @@ $(document).ready(function () {
                     <input id="password" type="password" name="password" value="" placeholder="Password">
                     <input type="submit">
                 </form>
-            <a href="#">Sign Up</a>
         </div>`)
         $('#lightbox').fadeToggle();
         
@@ -32,7 +31,7 @@ $(document).ready(function () {
             $('#lightbox').html(`
                 <div id="signin-wrapper">
                     <a id="signin-close" href="#">X</a>
-                    <p>About us!</p>
+                    <p>Made for Project 1 of the General Assembly WDI 51 Cohort by Lou, Matt, and Nassima</p>
             </div>`)
             $('#lightbox').fadeToggle();
 

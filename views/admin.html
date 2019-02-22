@@ -19,8 +19,37 @@
 
   <style>
     body {
-    padding-top: 50px;
+    padding-top: 4em;
 }
+
+tr.table {
+    table-layout: fixed;
+    width: 10em;
+}
+    td {
+        width: 2em;
+        text-align: left;
+    }
+
+.tableLabels{
+  padding-top: 100px;
+}
+
+.modelSections a, .modelSections{
+  text-decoration: none;
+  color: gray;
+  margin: 1em;
+}
+
+label {
+  padding-left: .5em;
+  padding-bottom: 1em;
+}
+
+.btn-primary {
+  padding-top: 1em;
+}
+
   </style>
 </head>
 <body>
@@ -36,7 +65,6 @@
           </div>
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home</a></li>
               <li><a href="#users">Users</a></li>
               <li><a href="#ratings">Ratings</a></li>
               <li><a href="#schools">Schools</a></li>
@@ -51,17 +79,21 @@
           <h1>Admin Page</h1>
 <!-- Users -->  
           <div class="container"></div>
-              <h2 class="text-center"><a name="users">Users</a></h2>
+              <h2 class="text-center modelSections"><a name="users">Users</a></h2>
               <div class="row">
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-12 col-md-offset-0">
                   <form class="form-inline" id="newUserForm">
                     <div class="form-group">
-                      <label for="user">User</label>
+                      <label for="userName">User</label>
                       <input type="text" class="form-control" id="userName" name="userName" placeholder="User name">
                       <input type="hidden" id="userid" name="userid">
                     </div>
                     <div class="form-group">
-                      <label for="Role">Role</label>
+                        <label for="password">Password</label>
+                        <input type="text" class="form-control" id="password" name="password" placeholder="User password">
+                    </div>
+                    <div class="form-group">
+                      <label for="role">Role</label>
                       <input type="text" class="form-control" id="role" name="role" placeholder="User role">
                     </div>
                     <div class="form-group">
@@ -69,18 +101,20 @@
                         <input type="text" class="form-control" id="avatar" name="avatar" placeholder="User avatar">
                       </div>
                     
-                    <button type="submit" class="btn btn-success">Create user</button>
+                    <button type="submit" class="btn btn-primary">Create user</button>
                   </form>
                   <div id='userTarget'>
                       <div id="userList" >
                           <table id="userTable" class="table">
                               <thead>
-                                <tr>
+                                <tr class="tableLabels">
                                   <th>User Name</th>
+                                  <th>Password</th>
                                   <th>Role</th>
                                   <th>Avatar</th>
                                   <th>Options</th>
                                 </tr>
+                                <br>
                               </thead>
                                 <tbody>
                                 </tbody>
@@ -93,19 +127,19 @@
 
 <!-- Rating -->
             <div class="container">
-            <h2 class="text-center"><a name="ratings">Ratings</a></h2>
+            <h2 class="text-center modelSections"><a name="ratings">Ratings</a></h2>
             <div class="row">
-              <div class="col-md-8 col-md-offset-2">
+              <div class="col-md-12 col-md-offset-0">
                 <form class="form-inline" id="newRatingForm">
                   <div class="form-group">
-                    <label for="user">User</label>
+                    <label for="userRatingName">User</label>
                     <input type="text" class="form-control" id="userRatingName" name="userRatingName" placeholder="User name">                    
                     <input type="hidden" id="user_ratingid" name="user_ratingid">
                   </div>
 
                   <div class="form-group">
-                      <label for="school">SchoolID</label>
-                  <input type="text" id="school" name="school" value="5c6dd5887c3a478d7a6e935e"> 
+                      <!-- <label for="school"></label>
+                  <input type="hidden" id="school" name="school" value="5c6dd5887c3a478d7a6e935e">  -->
                   </div>
                   <div class="form-group">
                     <label for="userRating">User Rating</label>
@@ -119,7 +153,7 @@
                     <label for="comments">Comments</label>
                     <input type="text" class="form-control" id="comments" name="comments" placeholder="Comments">
                   </div>
-                  <button type="submit" class="btn btn-success">Create rating</button>
+                  <button type="submit" class="btn btn-primary">Create rating</button>
                 </form>
                 <div id='userTarget'>
                     <div id="userList" >
@@ -132,6 +166,7 @@
                                 <th>Comments</th>
                                 <th>Options</th>
                               </tr>
+                              <br>
                             </thead>
                               <tbody>
                               </tbody>
@@ -144,18 +179,30 @@
 
 <!-- Schools -->  
           <div class="container">
-              <h2 class="text-center"><a name="schools">Schools</a></h2>
+              <h2 class="text-center modelSections"><a name="schools">Schools</a></h2>
               <div class="row">
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-12 col-md-offset-0">
                   <form class="form-inline" id="newSchoolForm">
                     <div class="form-group">
-                      <label for="school">School Name</label>
+                      <label for="schoolName">School Name</label>
                       <input type="text" class="form-control" id="schoolName" name="schoolName" placeholder="School name">
                       <input type="hidden" id="schoolid" name="schoolid">
                     </div>
                     <div class="form-group">
+                        <label for="streetAddress">Street Address</label>
+                        <input type="text" class="form-control" id="streetAddress" name="streetAddress" placeholder="School street">
+                    </div>
+                    <div class="form-group">
                       <label for="city">City</label>
                       <input type="text" class="form-control" id="city" name="city" placeholder="School city">
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <input type="text" class="form-control" id="state" name="state" placeholder="School state">
+                    </div>
+                    <div class="form-group">
+                      <label for="zipCode">Zip Code</label>
+                      <input type="text" class="form-control" id="zipCode" name="zipCode" placeholder="School zip code">
                     </div>
                     <div class="form-group">
                       <label for="district">District</label>
@@ -165,7 +212,7 @@
                       <label for="academicRating">Academic Rating</label>
                       <input type="text" class="form-control" id="academicRating" name="academicRating" placeholder="School academic rating">
                     </div>
-                    <button type="submit" class="btn btn-success">Create school</button>
+                    <button type="submit" class="btn btn-primary">Create school</button>
                   </form>
                   <div id='schoolTarget'>
                       <div id="schoolList" >
@@ -173,11 +220,15 @@
                             <thead>
                               <tr>
                                 <th>School Name</th>
+                                <th>Street</th>
                                 <th>City</th>
+                                <th>State</th>
+                                <th>Zip Code</th>
                                 <th>District</th>
                                 <th>Academic Rating</th>
                                 <th>Options</th>
                               </tr>
+                              <br>
                             </thead>
                             <tbody>
                             </tbody>

@@ -3,6 +3,7 @@
     padding: 0 auto;
     /* border: 1px solid black; */
     font-size: 18px;
+    color: rgb(40,40,40);
     font-family: 'Noto Serif', serif;
     font-family: 'Oxygen', sans-serif;
 }
@@ -29,11 +30,7 @@ main {
     display: flex;
     height: 80%;
     margin: 5% 0;
-}
-
-#map {
-  height: 100%;
-  width: 100%;
+    width: 100%;
 }
 
 /* Header */
@@ -119,21 +116,33 @@ footer p {
     width: 50%;
     height: 50%;
     background-color: #006DB2;
-    border: 1px solid black;
     position: absolute;
     left: 25%;
     top: 25%;
 
 }
 
-#signin-close {
-    text-align: right;
-    background-color: black;
-    font-weight: bold;
-    text-decoration: none;
-    width: 10%;
+form {
+    display: flex;
+    flex-direction: column;
 }
 
-.failed-login {
+form * {
+    margin: 2.5%;
+}
+
+#signin-close {
+    text-align: center;
     background-color: red;
+    color:white;
+    border: 1px solid black;
+    margin: 0 auto;
+    border-radius: .5em;
+    font-weight: bold;
+    text-decoration: none;
+    width: 2em;
+    height: 2em;
+    position: absolute;
+    right: 1em;
+    top: 1em;
 }

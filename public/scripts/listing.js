@@ -14,15 +14,22 @@ $(document).ready(function () {
             $('.about').html(
                 `<h2>${res[0].schoolName}</h2>
                 <p>${res[0].aboutSchool}</p>`)
-            $('.school-img').html(
-                `<img src="../../../../images/placeholder.png">`
+            $('.school-img').prepend(
+                `<img src="../../../../../images/school_images/${res[0].schoolImg}">`
             )
             $('.address').html(
                 `<p>${address}</p>`
             )
+
             loadComments(res[0]._id);
 
             document.title = res[0].schoolName;
+
+            $('.user-rating').append(`<p>${res[0].userRating}`)
+            $('.academic-rating').append(`<p>${res[0].academicRating}`)
+
+            //  need to check this one  document.title = res[0].schoolName
+
             
             // most of the geocode code came from a stack overflow response to the problem, i worked
             // through it and understand it but didn't create it fully from scratch
@@ -46,7 +53,7 @@ $(document).ready(function () {
                     });
 
                 var myOptions = {
-                zoom: 13,
+                zoom: 12,
                 center: latlng,
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
                 mapTypeControl: false

@@ -32,7 +32,7 @@ const db = require('./models');
 
 // Serve static files from the `/public` directory:
 // i.e. `/images`, `/scripts`, `/styles`
-app.use(express.static('public'));
+  app.use(express.static(__dirname + '/public/'));
 
 /*
  * HTML Endpoints
@@ -166,7 +166,7 @@ app.put('/api/users/:id',(req,res) => {
       schoolAddress: {
         streetAddress:req.body.streetAddress,
         city:req.body.city,
-        state:req.body.satate,
+        state:req.body.state,
         zipCode:req.body.zipCode
         // req.body.schoolAddress,
         },
