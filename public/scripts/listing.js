@@ -54,6 +54,7 @@ $(document).ready(function () {
         
                 }); 
     
+                // initializes google map
             function initialize(latitude,longitude) {
                 var latlng = new google.maps.LatLng(latitude, longitude);
                     map = new google.maps.Map(document.getElementById('map'), {
@@ -81,6 +82,7 @@ $(document).ready(function () {
         }
     })
 
+    // sends you back to the search page
     $('#back').on('click', function(e) {
         location.href = '../'
     })

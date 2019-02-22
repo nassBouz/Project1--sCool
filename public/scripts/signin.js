@@ -41,10 +41,7 @@ $(document).ready(function () {
         });
     });
 
-    $(document).on('submit', function(e) {
-        e.preventDefault();
-    });
-
+    // login function, takes user input and compares to the user DB and sets logged in to true
     $(document).on('submit', function(e) {
         e.preventDefault();
         $.ajax({
@@ -55,9 +52,11 @@ $(document).ready(function () {
                 let inputName = $('#user').val();
                 let inputPass = $('#password').val();
 
+                // iterates through the user DB comparing against user input
                 res.forEach(userData => {
                     if (inputName === userData.userName) {
                         if (inputPass === userData.password) {
+                            // on successful match of user input and user db, compares the password, if the password is true execute this code block
                             console.log("Hooray, it matches!")
                             $('#lightbox').fadeToggle();
                             signedIn = true;
@@ -74,9 +73,11 @@ $(document).ready(function () {
                     } 
                 })
 
+                // sends a console log that the login or password dont match
                 if (signedIn == false) {
                     console.log("Login Failed, username or password not found")
                 }
+                // checks if they are an admin and if so, sends them to the admin page
                 console.log(signedIn)
                 if (isAdmin) {
                     location.href = "/admin"
