@@ -1,8 +1,10 @@
 # App Name: sCool
 
-*Short explanation of the project (1-2 sentences) - what is the goal of the project and/or main functionality?*
+*sCool is a platform designed to help you discover and compare schools according to academic ratings, user ratings, and user comments. A tool designed to assist parents, students, scholars and others find a school that meets their needs* 
 
-[Link to project hosted on Heroku]()
+The sCool Team
+San Francisco, CA
+[https://floating-ocean-87386.herokuapp.com/#]()
 
 
 ---
@@ -11,6 +13,7 @@
 
 - Vanilla JavaScript
 - [jQuery](http://jquery.com/)
+- [Bootstrap](https://getbootstrap.com/)
 - [Node.js](https://nodejs.org/en/)
 - [MongoDB](https://www.mongodb.com/)/ [Mongoose](https://www.npmjs.com/package/mongoose)
 - AJAX
@@ -22,7 +25,19 @@
 
 ## Existing Features
 
-- 
+Landing Page
+- Custom Authentication
+- Schools Search
+- Redirect to Dynamic URL
+
+Listing Page
+- About School Dynamic Layout
+- Real-time commenting & rating system
+- Embedded Google Maps
+
+Admin Page
+- Admin Users | Admin Ratings | Admin Schools (view, create, edit, delete)
+- Private Internal Documentation
 
 
 ---
@@ -31,7 +46,11 @@
 
 Changes we would you make to our project if we continued to work on it:
 
-- Tutorial to website
+- Integrating Google Sign-In
+- Filtering Implementation (Landing and Admin Pages)
+- Map search (Landing Page)
+- School comparison table (dynamic display results)
+- Filling Star Ratings
 
 
 ---
