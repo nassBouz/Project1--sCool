@@ -156,7 +156,7 @@ app.put('/api/users/:id',(req,res) => {
       schoolAddress: {
         streetAddress:req.body.streetAddress,
         city:req.body.city,
-        state:req.body.satate,
+        state:req.body.state,
         zipCode:req.body.zipCode
         // req.body.schoolAddress,
         },

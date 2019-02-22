@@ -67,6 +67,7 @@ $(document).ready(function() {
           function clearUserForm() {
             $('#userid').val('');
             $('#userName').val('');
+            $('#password').val('');
             $('#role').val('');
             $('#avatar').val('');
           }
