@@ -32,7 +32,7 @@ const db = require('./models');
 
 // Serve static files from the `/public` directory:
 // i.e. `/images`, `/scripts`, `/styles`
-  app.use(express.static(__dirname + '/public/'));
+app.use(express.static('public'));
 
 /*
  * HTML Endpoints
@@ -100,6 +100,11 @@ app.get('/api/users/:id', (req, res) => {
     res.json(users);
   }); 
 });
+// app.get('/api/users/:id', (req, res) => {
+//   db.Users.find({_id: req.params.id}, (error, users) => {
+//     res.json(users.userName);
+//   }); 
+// });
 
 app.post('/api/users', (req, res) => {
   var newUser = new db.Users({
@@ -151,9 +156,11 @@ app.put('/api/users/:id',(req,res) => {
   });
 
   app.get('/api/schools/:id/ratings', (req, res) => {
-    db.Ratings.find({school: req.params.id}, (error, ratings) => {
+    db.Ratings.find({school: req.params.id})
+    .populate('user')
+    .exec( (error, ratings) => {
       res.json(ratings);
-    }); 
+    })
   });
 
 
@@ -166,7 +173,7 @@ app.put('/api/users/:id',(req,res) => {
       schoolAddress: {
         streetAddress:req.body.streetAddress,
         city:req.body.city,
-        state:req.body.state,
+        state:req.body.satate,
         zipCode:req.body.zipCode
         // req.body.schoolAddress,
         },
@@ -215,6 +222,7 @@ app.put('/api/users/:id',(req,res) => {
     }); 
   });
  
+
   app.get('/api/ratings/:id', (req, res) => {
     db.Ratings.find({_id: req.params.id}, (error, ratings) => {
       res.json(ratings);
