@@ -27,10 +27,10 @@ const mySchools = [
     schoolName:"Abraham Prep School",
     aboutSchool: "k-12",
     schoolAddress: {
-      streetAddress:"530 Kiki Dr",
-      city:"Pleasant Hill",
-      state:"CA",
-      zipCode:94523
+      streetAddress:"2421 Shingleton Road",
+      city:"Grand Rapids",
+      state:"MI",
+      zipCode:49503
     },
     district: "Alhambra Unified School District",
     academicRating: 9,
@@ -45,12 +45,12 @@ const mySchools = [
     schoolName:"Lincoln School",
     aboutSchool: "7-9",
     schoolAddress: {
-      streetAddress:"530 Kiki Dr",
-      city:"Pleasant Hill",
+      streetAddress:"2191 Zimmerman Lane",
+      city:"Los Angeles",
       state:"CA",
-      zipCode:94523
+      zipCode:90057
     },
-    district: "Pittsburg Unified School District",
+    district: "Los Angeles Unified School District",
     academicRating: 9,
     // create a function to avg the user rating
     userRating: 5,
@@ -64,18 +64,18 @@ const mySchools = [
     schoolName: "Petite Academy School",
     aboutSchool: "k-12",
     schoolAddress: {
-    streetAddress:"530 Kiki Dr",
-    city:"Concord",
+    streetAddress:"4312 Pleasant Hill Road",
+    city:"Los Angeles",
     state:"CA",
     zipCode:94523
     },
-    district: "Mount Diablo Unified School District",
+    district: "Los Angeles Unified School District",
     academicRating: 6,
     // create a function to avg the user rating
     userRating: 3,
     schoolImg:"some picture",
     contactInfo: {
-    phoneNumber: "(925) 687-1788",
+    phoneNumber: "(562) 242-6356",
     emailAddress:"www.mdusd.org"
     }
   },
