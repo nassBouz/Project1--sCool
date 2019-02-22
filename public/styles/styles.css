@@ -137,15 +137,11 @@ form * {
     color:white;
     border: 1px solid black;
     margin: 0 auto;
-    padding-top: .5em;
-    padding-bottom: -.5em;
-    border-radius: 25%;
+    border-radius: .5em;
     font-weight: bold;
     text-decoration: none;
     width: 2em;
     height: 2em;
-    max-width: 2em;
-    max-height: 2em;
     position: absolute;
     right: 1em;
     top: 1em;

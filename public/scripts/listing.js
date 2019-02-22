@@ -20,6 +20,9 @@ $(document).ready(function () {
             $('.address').html(
                 `<p>${address}</p>`
             )
+            $('.user-rating').append(`<p>${res[0].userRating}`)
+            $('.academic-rating').append(`<p>${res[0].academicRating}`)
+
             document.title = res[0].schoolName
             
             // most of the geocode code came from a stack overflow response to the problem, i worked
