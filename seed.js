@@ -112,7 +112,14 @@ const myRatings = [
     ratingDate: "2018-3-12",
     user: "Miket",
     school: "Valhalla Elementary School"
-  }
+  },
+  {
+    rating: 4,
+    comments: "Great environement!!!",
+    ratingDate: "2018-3-4",
+    user: "yanniB",
+    school: "Lincoln School"
+  },
 ]
 
 db.Schools.deleteMany({}, (err, schools) => {

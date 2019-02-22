@@ -52,12 +52,32 @@
                 <h2 id="schoolName"></h2>
                 <p id="schoolAbout">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum quod, consequuntur reprehenderit distinctio, esse recusandae minima molestiae enim nihil temporibus deleniti! Assumenda reiciendis nam fugit, illo quod sit voluptatum! Esse? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore dolorum non at debitis minus vero beatae quo assumenda nam numquam molestias, illo incidunt error, veniam ipsam asperiores, molestiae repellendus est.</p>
             </div>
-            <div id="comments">
-                <p>comments go here</p>
-            </div>
+            <table id="commentable" class="table">
+                <thead>
+                    <p> my comments here</p>
+                  <!-- <tr>
+                    <th>User Name</th>
+                    <th>Role</th>
+                    <th>Avatar</th>
+                    <th>Options</th>
+                  </tr> -->
+                </thead>
+                  <tbody>
+                  </tbody>
+            </table>
+            <form class="form-inline" id="newRatingForms">
+              <div id="comments">
+                 <p>Plesae share your experience about this school</p>
+                  <input id ="submiCommentt" type="text" name="comment" value="" placeholder="Add Comment">
+                  <input id ="rating" type="text" name="rating" value="" placeholder="Rate 1-5">
+                  <!-- <button id = "submiCommentButton" type="button" > -->
+                  <button id ="submiComment" type="submit" class="btn btn-success">Submit your comment</button>
+              </div>
+           </form>
         </div>
     </main>
-
+    
+        
 
     <footer>
         <p>Copywrite &copy; 2019 Lou, Nassima, and Walrus</p>

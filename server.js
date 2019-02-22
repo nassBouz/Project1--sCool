@@ -82,7 +82,8 @@ app.get('/api', (req, res) => {
       {method: "GET", path: "/api/ratings/:id", description: "Get 1 rating"},
       {method: "POST", path: "/api/ratings", description: "Create a new rating"},
       {method: "PUT", path: "/api/ratings/:id", description: "Update a rating"},
-      {method: "DELETE", path: "/api/ratings/:id", description: "Delete a rating"}
+      {method: "DELETE", path: "/api/ratings/:id", description: "Delete a rating"},
+      // {method: "POST", path: "/api/schools/:id/ratings", description: "Create a new rating"}
     ]
   })
 });
@@ -148,6 +149,15 @@ app.put('/api/users/:id',(req,res) => {
       res.json(schools);
     }); 
   });
+
+  app.get('/api/schools/:id/ratings', (req, res) => {
+    db.Ratings.find({school: req.params.id}, (error, ratings) => {
+      res.json(ratings);
+    }); 
+  });
+
+
+
 
   app.post('/api/schools', (req, res) => {
     var newSchool = new db.Schools({
@@ -236,7 +246,34 @@ app.put('/api/users/:id',(req,res) => {
       });
    });
   });
+//// adding a comment by passing the school id 
 
+app.post('/api/schools/:id/users/:idu/ratings/', (req, res) => {
+  //db.Ratings.find({school: req.params.id}, (error, ratings) => {
+    let newRating = new db.Ratings({
+      rating: req.body.rating,
+      comments: req.body.comments,
+      ratingDate: req.body.ratingDate,
+      school : req.params.id,
+      user: req.params.idu,
+    });
+    newRating.save((error, ratingg) => {
+      res.json(ratingg);
+    });
+  }); 
+
+  // app.post('/api/users', (req, res) => {
+  //   var newUser = new db.Users({
+  //     userName: req.body.userName,
+  //     password: req.body.password,
+  //     role: req.body.role,
+  //     createdUserDate: Date(),
+  //     avatar: req.body.avatar
+  //   });
+  //   newUser.save((error, user) => {
+  //     res.json(user);
+  //   });
+  // });
 /// update rating
 app.put('api/ratings/:id',(req, res) => {
   console.log('ratings update ', req.params);
