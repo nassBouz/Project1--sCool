@@ -10,12 +10,12 @@ $(document).ready(function () {
         $('#lightbox').html(`
             <div id="signin-wrapper">
                 <a id="signin-close" href="#">X</a>
-                <form>
+                <form id="login-form">
                     <p>User Name</p>
                     <input id="user" type="text" name="username" value="" placeholder="User Name">
                     <p>Password</p>
                     <input id="password" type="password" name="password" value="" placeholder="Password">
-                    <input type="submit">
+                    <input id="loginbtn" type="submit">
                 </form>
         </div>`)
         $('#lightbox').fadeToggle();
@@ -41,6 +41,11 @@ $(document).ready(function () {
     });
 
     $(document).on('submit', function(e) {
+        e.preventDefault();
+    });
+
+    $(document).on('submit', function(e) {
+        console.log("Clicky")
         e.preventDefault();
         $.ajax({
             method: "GET",
