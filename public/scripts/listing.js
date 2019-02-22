@@ -15,7 +15,7 @@ $(document).ready(function () {
                 `<h2>${res[0].schoolName}</h2>
                 <p>${res[0].aboutSchool}</p>`)
             $('.school-img').prepend(
-                `<img src="../../../../images/placeholder.png">`
+                `<img src="images/placeholder.png">`
             )
             $('.address').html(
                 `<p>${address}</p>`

@@ -79,6 +79,25 @@ const mySchools = [
     emailAddress:"www.mdusd.org"
     }
   },
+  {
+    schoolName: "Woodland Park Middle School",
+    aboutSchool: "At WPMS we deliver a rigorous curriculum that is aligned with current Colorado State Standards and the national core standards. We are consistently rated in the top four districts in Pikes Peak region and believe that we provide a quality education that is focused on academic growth, social growth and structured opportunities to explore student’s interests, passions and strengths. We provide a safe and focused educational experience through our ROAR principles: Respect, Ownership, Achievement and Relationship. In order to create an exceptional learning environment, we expect all staff, parents and students to abide by these principles.",
+    schoolAddress: {
+    streetAddress:"600 E Kelly Rd",
+    city:"Woodland Park",
+    state:"CO",
+    zipCode:80863
+    },
+    district: "Woodland Park School District No. Re-2",
+    academicRating: 10,
+    // create a function to avg the user rating
+    userRating: 5,
+    schoolImg:"images/school_images/wpms.jpg",
+    contactInfo: {
+    phoneNumber: "(719) 686-2200",
+    emailAddress:"http://www.wpsdk12.org/schools/wpms/"
+    }
+  },
 ];
 
 const myUsers = [
@@ -95,7 +114,28 @@ const myUsers = [
     role: "user",
     createdUserDate: 09-13-2019,
     avatar: "something here"
-  }
+  },
+  {
+    userName:"walrus",
+    password: "tusks",
+    role: "admin",
+    createdUserDate: 09-13-2019,
+    avatar: "something here"
+  },
+  {
+    userName:"rando",
+    password: "calrissian",
+    role: "user",
+    createdUserDate: 09-13-2019,
+    avatar: "something here"
+  },
+  {
+    userName:"johnQ",
+    password: "public",
+    role: "user",
+    createdUserDate: 09-13-2019,
+    avatar: "something here"
+  },
 ];
 
 const myRatings = [
@@ -112,7 +152,28 @@ const myRatings = [
     ratingDate: "2018-3-12",
     user: "Miket",
     school: "Valhalla Elementary School"
-  }
+  },
+  {
+    rating: 1,
+    comments: "worst steakhouse I've ever been too",
+    ratingDate: "2018-3-12",
+    user: "rando",
+    school: "Petite Academy School"
+  },
+  {
+    rating: 3,
+    comments: "this school is a mess",
+    ratingDate: "2018-3-12",
+    user: "johnQ",
+    school: "Valhalla Elementary School"
+  },
+  {
+    rating: 5,
+    comments: "I actually went to school here",
+    ratingDate: "2018-3-12",
+    user: "walrus",
+    school: "Woodland Park Middle School"
+  },
 ]
 
 db.Schools.deleteMany({}, (err, schools) => {
