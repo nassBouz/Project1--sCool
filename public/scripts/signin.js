@@ -1,5 +1,6 @@
 var signedIn = false;
 var isAdmin = false;
+var storedUser = ""
 var userId = "";
 
 $(document).ready(function () {
@@ -61,6 +62,9 @@ $(document).ready(function () {
                             console.log("Hooray, it matches!")
                             $('#lightbox').fadeToggle();
                             signedIn = true;
+                            storedUser = inputName;
+                            $('#newRatingForms').removeClass("hidden")
+                            
                             if (userData.role === "admin") {
                                 isAdmin = true;
                             }
