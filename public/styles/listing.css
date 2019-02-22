@@ -1,3 +1,7 @@
+* {
+    text-align: center;
+}
+
 /* Aside */
 
 aside {
@@ -24,6 +28,7 @@ aside {
 
 .address p {
     font-size: .7em;
+    text-align: center;
 }
 
 .school-img {
@@ -44,27 +49,22 @@ img {
     height: 100%;
 }
 
-p {
-    text-align: center;
-}
-
-
 /*  */
-
-
 
 /* About Section */
 
     .about-wrapper {
-        width: 65%;
+        width: 70%;
         display: flex;
         flex-direction: column;
         position: absolute;
-        right: 5%;
+        right: 1%;
         height: auto;
+        border: 1px solid black;
     }
 
     .about-wrapper * {
+        width: 100%;
         margin-bottom: 2%;
     }
 
@@ -73,7 +73,16 @@ p {
         height: 48%;
     }
 
+    h2 {
+        background-color: rgb(40,40,40);
+        color: white;
+        padding: .5rem 0;
+        font-size: 1.5em;
+    }
 
+    p {
+        text-align: center;
+    }
 
 
 /*  */
