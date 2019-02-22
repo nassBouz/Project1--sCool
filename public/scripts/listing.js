@@ -14,7 +14,7 @@ $(document).ready(function () {
             $('.about').html(
                 `<h2>${res[0].schoolName}</h2>
                 <p>${res[0].aboutSchool}</p>`)
-            $('.school-img').html(
+            $('.school-img').prepend(
                 `<img src="../../../../images/placeholder.png">`
             )
             $('.address').html(
@@ -44,7 +44,7 @@ $(document).ready(function () {
                     });
 
                 var myOptions = {
-                zoom: 13,
+                zoom: 12,
                 center: latlng,
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
                 mapTypeControl: false

@@ -17,7 +17,6 @@ $(document).ready(function () {
                     <input id="password" type="password" name="password" value="" placeholder="Password">
                     <input type="submit">
                 </form>
-            <a href="#">Sign Up</a>
         </div>`)
         $('#lightbox').fadeToggle();
         

@@ -3,6 +3,7 @@
     padding: 0 auto;
     /* border: 1px solid black; */
     font-size: 18px;
+    color: rgb(40,40,40);
     font-family: 'Noto Serif', serif;
     font-family: 'Oxygen', sans-serif;
 }
@@ -29,11 +30,6 @@ main {
     display: flex;
     height: 80%;
     margin: 5% 0;
-}
-
-#map {
-  height: 100%;
-  width: 100%;
 }
 
 /* Header */
