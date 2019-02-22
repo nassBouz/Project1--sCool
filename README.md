@@ -1,10 +1,10 @@
 # App Name: sCool
 
-sCool is a platform designed to help parents, students, scholars and others discover a school that meets their search needs. A tool created to assist you search and compare schools according to academic ratings, user ratings, and user comments.
+sCool is a platform designed to help parents, students, scholars, and others discover a school that meets their search needs. A tool created to assist you find and compare schools according to academic ratings, user ratings, and user comments.
 
 *The sCool Team*
 *San Francisco, CA*
-*[https://floating-ocean-87386.herokuapp.com/#]()*
+[https://floating-ocean-87386.herokuapp.com/]()
 
 
 ---
