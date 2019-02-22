@@ -2,8 +2,15 @@ let url = window.location.href;
 const google_maps = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg"
 let splitUrl = url.split("/");
 let listingUrl = splitUrl[splitUrl.length - 1]
+var storedUser = ""
 
 $(document).ready(function () {
+
+    
+    $(document).on('submit', function(e) {
+        storedUser = inputName;
+        console.log(storedUser);
+    });
 
     $.ajax({
         method: 'GET',
@@ -106,7 +113,7 @@ $(document).ready(function () {
                       username = row.user.userName;
                       console.log(username);
                   };
-                   $('#commentable').append(`<tr><td>${row.comments}</td><td>${row.rating}</td><td> ${username} </td></tr>`);
+                   $('#commentable').append(`<tr><td>${row.comments}</td><td>${row.rating}</td><td> ${ustoredUser} </td></tr>`);
                });
              },
              error: function(error) {

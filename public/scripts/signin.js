@@ -11,12 +11,12 @@ $(document).ready(function () {
         $('#lightbox').html(`
             <div id="signin-wrapper">
                 <a id="signin-close" href="#">X</a>
-                <form id="login-form">
+                <form>
                     <p>User Name</p>
                     <input id="user" type="text" name="username" value="" placeholder="User Name">
                     <p>Password</p>
                     <input id="password" type="password" name="password" value="" placeholder="Password">
-                    <input id="loginbtn" type="submit">
+                    <input type="submit">
                 </form>
         </div>`)
         $('#lightbox').fadeToggle();
@@ -46,7 +46,6 @@ $(document).ready(function () {
     });
 
     $(document).on('submit', function(e) {
-        console.log("Clicky")
         e.preventDefault();
         $.ajax({
             method: "GET",
@@ -64,6 +63,7 @@ $(document).ready(function () {
                             signedIn = true;
                             storedUser = inputName;
                             $('#newRatingForms').removeClass("hidden")
+                            $('#lightbox').removeAttr('id');
                             
                             if (userData.role === "admin") {
                                 isAdmin = true;
@@ -75,7 +75,7 @@ $(document).ready(function () {
                 })
 
                 if (signedIn == false) {
-                    alert("Login Failed, username or password not found")
+                    console.log("Login Failed, username or password not found")
                 }
                 console.log(signedIn)
                 if (isAdmin) {
