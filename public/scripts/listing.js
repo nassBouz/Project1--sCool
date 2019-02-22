@@ -78,23 +78,35 @@ $(document).ready(function () {
         location.href = '../'
     })
 
-    // function userNameTractot(userId){
-    //         db.Users.find({_id: req.params.userId}, (error, users) => {
-    //           return(users.userName);
-    //         })
-    //     };
-
+    function userNameTractot(userId){
+        $.ajax({
+            method: "GET",
+            url: `/api/users/ + ${userId}`,
+            success: function(response){
+                console.log(response);
+            },
+            error: function(error) {
+                console.log("an error occurred here ", error);
+            }
+          });
+        };
+        // let userId = "5c6f53ca4f77011efc21a56b"
+        // userNameTractot(userId);
     function loadComments(schoolId) {
         $('#commentable').empty();
          $.ajax({
              method: "GET",
              url: `/api/schools/${schoolId}/ratings`,
-
              success: function(response){
-               console.log("success got data", response);
+               //console.log("success got data", response);
                response.forEach(row => {
-                ///let userNName = userNameTractot(userId);
-                   $('#commentable').append(`<tr><td>${row.comments}</td><td>${row.rating}</td></tr>`);
+                // let userNName = userNameTractot(userId);
+                let username = 'No Current User Matched';
+                  if(row.user) {
+                      username = row.user.userName;
+                      console.log(username);
+                  };
+                   $('#commentable').append(`<tr><td>${row.comments}</td><td>${row.rating}</td><td> ${username} </td></tr>`);
                });
              },
              error: function(error) {
