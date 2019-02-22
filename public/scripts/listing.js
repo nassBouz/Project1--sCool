@@ -115,7 +115,7 @@ $(document).ready(function () {
                       username = row.user.userName;
                       console.log(username);
                   };
-                   $('#commentable').append(`<tr><td>${row.comments}</td><td>${row.rating}</td><td> ${ustoredUser} </td></tr>`);
+                   $('#commentable').append(`<tr><td>${row.comments}</td><td>${row.rating}</td><td> ${username} </td></tr>`);
                });
              },
              error: function(error) {
