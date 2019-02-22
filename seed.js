@@ -6,12 +6,12 @@ const db = require('./models');
 const mySchools = [
   {
     schoolName: "Valhalla Elementary School",
-    aboutSchool: "Put light against light - you have nothing. Put dark against dark - you have nothing. It's the contrast of light and dark that each give the other one meaning. We spend so much of our life looking - but never seeing. The shadows are just like the highlights, but we're going in the opposite direction. This is a fantastic little painting. The man who does the best job is the one who is happy at his job. It's cold, but it's beautiful. Now we can begin working on lots of happy little things. There's not a thing in the world wrong with washing your brush. Absolutely no pressure. You are just a whisper floating across a mountain. There he comes. I thought today we would do a happy little picture. How do you make a round circle with a square knife? That's your challenge for the day. That is when you can experience true joy, when you have no fear.",
+    aboutSchool: "In Norse mythology, Valhalla is a majestic, enormous hall located in Asgard, ruled over by the god Odin. Chosen by Odin, half of those who die in combat travel to Valhalla upon death, led by valkyries, while the other half go to the goddess Freyja's field Fólkvangr. In Valhalla, the dead join the masses of those who have died in combat, known as Einherjar, and various legendary Germanic heroes and kings, as they prepare to aid Odin during the events of Ragnarök. Before the hall stands the golden tree Glasir, and the hall's ceiling is thatched with golden shields. Various creatures live around Valhalla, such as the stag Eikþyrnir and the goat Heiðrún, both described as standing atop Valhalla and consuming the foliage of the tree Læraðr. Valhalla is attested in the Poetic Edda, compiled in the 13th century from earlier traditional sources, the Prose Edda and Heimskringla (both written in the 13th century by Snorri Sturluson), and in stanzas of an anonymous 10th century poem commemorating the death of Eric Bloodaxe known as Eiríksmál as compiled in Fagrskinna. Valhalla has inspired various works of art, publication titles, and elements of popular culture, and has become a term synonymous with a martial (or otherwise) hall of the chosen dead.",
     schoolAddress: {
-    streetAddress:"530 Kiki Dr",
-    city:"Pleasant Hill",
-    state:"CA",
-    zipCode:94523
+    streetAddress:"123 Bifrost Way",
+    city:"Valhalla",
+    state:"Asgaard",
+    zipCode:"12345",
     },
     district: "Mount Diablo Unified School District",
     academicRating: 9,
@@ -96,6 +96,96 @@ const mySchools = [
     contactInfo: {
     phoneNumber: "(719) 686-2200",
     emailAddress:"http://www.wpsdk12.org/schools/wpms/"
+    }
+  },
+  {
+    schoolName:"General Assembly",
+    aboutSchool: "Why General Assembly? We offer a transformative combination of educational rigor, dedicated in-house career coaching, and lasting connections. Our instructional designers craft coursework that's both dynamic and relevant, while GA instructors are trained to teach working professionals how to grow in their careers — or embark on new ones.",
+    schoolAddress: {
+      streetAddress:"225",
+      city:"San Francisco",
+      state:"CA",
+      zipCode:94140
+    },
+    district: "N/A",
+    academicRating: 10,
+    userRating: 5,
+    schoolImg:"ga.png",
+    contactInfo: {
+      phoneNumber: "",
+      emailAddress:""
+    }
+  },
+  {
+    schoolName:"Schooly McSchoolface",
+    aboutSchool: "Change the way you do business - adopt mobile propositions. Knowledge transfer synergies are becoming company-wide stakeholder experts. Efficiencies will come from strategically transforming our alignments. We aim to dynamically connect our standard setter by conservatively virtualising our customer-focused competitive stacks.",
+    schoolAddress: {
+      streetAddress:"225",
+      city:"San Francisco",
+      state:"CA",
+      zipCode:94140
+    },
+    district: "Some School District",
+    academicRating: 10,
+    userRating: 5,
+    schoolImg:"school5.jpg",
+    contactInfo: {
+      phoneNumber: "",
+      emailAddress:""
+    }
+  },
+  {
+    schoolName:"Springfield Elementary",
+    aboutSchool: "Lorem Simpson perfectly cromulent spiritual de-pantsing throughhole they tried that in the movies and it didn't work chestal unpossible we were eating rotisserie chicken brain burger with extra pus garbagewater saxamaphone well-wisher unpossible commie-nazis 0 days without a suicide and all who dwell within this rocket house eyeball stew forfty sophistimacated doowhackey one way passage to the boneyard beginualize that's why your robot never worked knowitallism oodily boostafazoo joy, excitement, looking liberty log steamed hams no, money down! i had to sell the trigger and most of the handle to feed my family just like in real life eyeball stew introubulate blubber-in-law milhousing squozen a law requiring ducks to wear long pants works on contingency? shiva h. vishnu liberty log nincompoop nuisancefon catsup diddily hot jazz music no ones pinching his legs swedish lunchbox crap factory smokesperson my children need wine esquilax wiggle puppy paraplegiarino sacrilicious tromboner rastafy land monster smokesperson deceleratrix jeremy's iron liberty log smuggled vegetables eat my shorts banana kaboom brassafrax",
+    schoolAddress: {
+      streetAddress:"123 Fake Street",
+      city:"Springfield",
+      state:"IL",
+      zipCode:62670
+    },
+    district: "Springfield, probably",
+    academicRating: 10,
+    userRating: 5,
+    schoolImg:"school6.jpg",
+    contactInfo: {
+      phoneNumber: "",
+      emailAddress:""
+    }
+  },
+  {
+    schoolName:"Southpark Elementary",
+    aboutSchool: "Change the way you do business - adopt mobile propositions. Knowledge transfer synergies are becoming company-wide stakeholder experts. Efficiencies will come from strategically transforming our alignments. We aim to dynamically connect our standard setter by conservatively virtualising our customer-focused competitive stacks.",
+    schoolAddress: {
+      streetAddress:"225",
+      city:"San Francisco",
+      state:"CA",
+      zipCode:94140
+    },
+    district: "Southpark School District",
+    academicRating: 10,
+    userRating: 5,
+    schoolImg:"southpark.gif",
+    contactInfo: {
+      phoneNumber: "",
+      emailAddress:""
+    }
+  },
+  {
+    schoolName:"Schooly McSchoolface 4",
+    aboutSchool: "Change the way you do business - adopt mobile propositions. Knowledge transfer synergies are becoming company-wide stakeholder experts. Efficiencies will come from strategically transforming our alignments. We aim to dynamically connect our standard setter by conservatively virtualising our customer-focused competitive stacks.",
+    schoolAddress: {
+      streetAddress:"225",
+      city:"San Francisco",
+      state:"CA",
+      zipCode:94140
+    },
+    district: "N/A",
+    academicRating: 10,
+    userRating: 5,
+    schoolImg:"school8.jpg",
+    contactInfo: {
+      phoneNumber: "",
+      emailAddress:""
     }
   },
 ];
