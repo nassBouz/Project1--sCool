@@ -40,8 +40,9 @@ aside {
 
 img {
     margin: 0 auto;
-    height: 80%;
+    height: auto;
     margin-top: 2%;
+    max-width: 100%;
     /* border: 1px solid black; */
 }
 

@@ -6,7 +6,7 @@ const db = require('./models');
 const mySchools = [
   {
     schoolName: "Valhalla Elementary School",
-    aboutSchool: "k-5",
+    aboutSchool: "Put light against light - you have nothing. Put dark against dark - you have nothing. It's the contrast of light and dark that each give the other one meaning. We spend so much of our life looking - but never seeing. The shadows are just like the highlights, but we're going in the opposite direction. This is a fantastic little painting. The man who does the best job is the one who is happy at his job. It's cold, but it's beautiful. Now we can begin working on lots of happy little things. There's not a thing in the world wrong with washing your brush. Absolutely no pressure. You are just a whisper floating across a mountain. There he comes. I thought today we would do a happy little picture. How do you make a round circle with a square knife? That's your challenge for the day. That is when you can experience true joy, when you have no fear.",
     schoolAddress: {
     streetAddress:"530 Kiki Dr",
     city:"Pleasant Hill",
@@ -17,7 +17,7 @@ const mySchools = [
     academicRating: 9,
     // create a function to avg the user rating
     userRating: 5,
-    schoolImg:"some picture",
+    schoolImg:"school4.jpg",
     contactInfo: {
     phoneNumber: "(925) 687-1700",
     emailAddress:"www.mdusd.org"
@@ -25,7 +25,7 @@ const mySchools = [
   },
   {
     schoolName:"Abraham Prep School",
-    aboutSchool: "k-12",
+    aboutSchool: "We'll put some happy little leaves here and there. Get away from those little Christmas tree things we used to make in school. There is no right or wrong - as long as it makes you happy and doesn't hurt anyone. Let's make a nice big leafy tree. Give him a friend, we forget the trees get lonely too. We'll take a little bit of Van Dyke Brown. Be careful. You can always add more - but you can't take it away.",
     schoolAddress: {
       streetAddress:"2421 Shingleton Road",
       city:"Grand Rapids",
@@ -35,7 +35,7 @@ const mySchools = [
     district: "Alhambra Unified School District",
     academicRating: 9,
     userRating: 5,
-    schoolImg:"some picture",
+    schoolImg:"school3.jpg",
     contactInfo: {
       phoneNumber: "(925) 687-1700",
       emailAddress:"www.mdusd.org"
@@ -43,7 +43,7 @@ const mySchools = [
   },
   {
     schoolName:"Lincoln School",
-    aboutSchool: "7-9",
+    aboutSchool: "Let your heart be your guide. I think there's an artist hidden in the bottom of every single one of us. Little trees and bushes grow however makes them happy. Let's build an almighty mountain. Little short strokes. And I know you're saying, 'Oh Bob, you've done it this time.' And you may be right. From all of us here, I want to wish you happy painting and God bless, my friends. Let your imagination just wonder around when you're doing these things. This is your world. Just make little strokes like that.",
     schoolAddress: {
       streetAddress:"2191 Zimmerman Lane",
       city:"Los Angeles",
@@ -54,7 +54,7 @@ const mySchools = [
     academicRating: 9,
     // create a function to avg the user rating
     userRating: 5,
-    schoolImg:"some picture",
+    schoolImg:"school2.jpg",
     contactInfo: {
       phoneNumber: "(925) 687-1700",
       emailAddress:"www.mdusd.org"
@@ -62,9 +62,9 @@ const mySchools = [
   },
   {
     schoolName: "Petite Academy School",
-    aboutSchool: "k-12",
+    aboutSchool: "Maybe there's a happy little bush that lives right there. You can bend rivers. But when I get home, the only thing I have power over is the garbage. We don't have to be committed. We are just playing here. And maybe, maybe, maybe... Let's make some happy little clouds in our world. Painting should do one thing. It should put happiness in your heart. You create the dream - then you bring it into your world. At home you have unlimited time. Little short strokes. It's almost like something out of a fairytale book. Almost everything is going to happen for you automatically - you don't have to spend any time working or worrying.",
     schoolAddress: {
-    streetAddress:"4312 Pleasant Hill Road",
+    streetAddress:"123 hollywood blvd",
     city:"Los Angeles",
     state:"CA",
     zipCode:94523
@@ -73,10 +73,29 @@ const mySchools = [
     academicRating: 6,
     // create a function to avg the user rating
     userRating: 3,
-    schoolImg:"some picture",
+    schoolImg:"school1.jpg",
     contactInfo: {
     phoneNumber: "(562) 242-6356",
     emailAddress:"www.mdusd.org"
+    }
+  },
+  {
+    schoolName: "Woodland Park Middle School",
+    aboutSchool: "At WPMS we deliver a rigorous curriculum that is aligned with current Colorado State Standards and the national core standards. We are consistently rated in the top four districts in Pikes Peak region and believe that we provide a quality education that is focused on academic growth, social growth and structured opportunities to explore student’s interests, passions and strengths. We provide a safe and focused educational experience through our ROAR principles: Respect, Ownership, Achievement and Relationship. In order to create an exceptional learning environment, we expect all staff, parents and students to abide by these principles.",
+    schoolAddress: {
+    streetAddress:"600 E Kelly Rd",
+    city:"Woodland Park",
+    state:"CO",
+    zipCode:80863
+    },
+    district: "Woodland Park School District No. Re-2",
+    academicRating: 10,
+    // create a function to avg the user rating
+    userRating: 5,
+    schoolImg:"wpms.jpg",
+    contactInfo: {
+    phoneNumber: "(719) 686-2200",
+    emailAddress:"http://www.wpsdk12.org/schools/wpms/"
     }
   },
 ];
@@ -95,7 +114,28 @@ const myUsers = [
     role: "user",
     createdUserDate: 09-13-2019,
     avatar: "something here"
-  }
+  },
+  {
+    userName:"walrus",
+    password: "tusks",
+    role: "admin",
+    createdUserDate: 09-13-2019,
+    avatar: "something here"
+  },
+  {
+    userName:"rando",
+    password: "calrissian",
+    role: "user",
+    createdUserDate: 09-13-2019,
+    avatar: "something here"
+  },
+  {
+    userName:"johnQ",
+    password: "public",
+    role: "user",
+    createdUserDate: 09-13-2019,
+    avatar: "something here"
+  },
 ];
 
 const myRatings = [
@@ -112,7 +152,28 @@ const myRatings = [
     ratingDate: "2018-3-12",
     user: "Miket",
     school: "Valhalla Elementary School"
-  }
+  },
+  {
+    rating: 1,
+    comments: "worst steakhouse I've ever been too",
+    ratingDate: "2018-3-12",
+    user: "rando",
+    school: "Petite Academy School"
+  },
+  {
+    rating: 3,
+    comments: "this school is a mess",
+    ratingDate: "2018-3-12",
+    user: "johnQ",
+    school: "Valhalla Elementary School"
+  },
+  {
+    rating: 5,
+    comments: "I actually went to school here",
+    ratingDate: "2018-3-12",
+    user: "walrus",
+    school: "Woodland Park Middle School"
+  },
 ]
 
 db.Schools.deleteMany({}, (err, schools) => {

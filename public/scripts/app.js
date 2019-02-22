@@ -56,13 +56,33 @@ $(document).ready(function() {
           console.log("success got data response for schools", response);
     
           response.forEach(row => {
-            if (((row.schoolName == sName )&&(row.schoolAddress.city == sCity))|| (row.schoolName == sName )||(row.schoolAddress.city == sCity)){
+            if ((((row.schoolName).toLowerCase() == sName.toLowerCase() )&&(row.schoolAddress.city == sCity))|| (row.schoolName == sName )||(row.schoolAddress.city == sCity)){
             $('#schoolTable').append('<tr><td>' + row.schoolName + '</td><td>' + row.schoolAddress.city + '</td><td>' + row.district + '</td><td>'
               + row.academicRating + '</td><td>' + row. userRating +'</td><td>'+ '<button id="' + row._id + '" class="btn btn-warning edituser">More Details</button>&nbsp;'
               //+ row.academicRating + '</td><td>' + calculateRating(row._id) +'</td><td>'+ '<button id="' + row._id + '" class="btn btn-warning edituser">More Details</button>&nbsp;'
             +'</td></tr>');
             console.log("response for schools", response);
+             // creating the new page based on the onclick event for button
+
+            let target = "#" + row._id
+            let id = row._id
+            $(target).on('click', function(e) {
+              // listingId = row._id
+              // location.href = `/listing`
+              $.ajax({
+                method: 'GET',
+                url: '/api/schools/' + $(this)[0].id,
+                success: function(response) {
+                  location.href = '/listing/' + id;
+                },
+                error: function(error) {
+                  console.log("beep boop failure");
+                }
+              })
+            
+            })
             }
+            
           });
         },
         error: function(error) {
@@ -92,9 +112,9 @@ $(document).ready(function() {
           });
         });
 
-        $('#5c6de525a13c3723209388d3').on('click',function(e) {
-          console.log("clicky")
-      })
+      //   $('#5c6de525a13c3723209388d3').on('click',function(e) {
+      //     console.log("clicky")
+      // })
 
     
         // function calculateRating(idSchool) {

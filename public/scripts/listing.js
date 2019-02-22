@@ -15,15 +15,21 @@ $(document).ready(function () {
                 `<h2>${res[0].schoolName}</h2>
                 <p>${res[0].aboutSchool}</p>`)
             $('.school-img').prepend(
-                `<img src="../../../../images/placeholder.png">`
+                `<img src="../../../../../images/school_images/${res[0].schoolImg}">`
             )
             $('.address').html(
                 `<p>${address}</p>`
             )
+
+            loadComments(res[0]._id);
+
+            document.title = res[0].schoolName;
+
             $('.user-rating').append(`<p>${res[0].userRating}`)
             $('.academic-rating').append(`<p>${res[0].academicRating}`)
 
-            document.title = res[0].schoolName
+            //  need to check this one  document.title = res[0].schoolName
+
             
             // most of the geocode code came from a stack overflow response to the problem, i worked
             // through it and understand it but didn't create it fully from scratch
@@ -34,7 +40,7 @@ $(document).ready(function () {
                     var latitude = results[0].geometry.location.lat();
                     var longitude = results[0].geometry.location.lng();
             
-            
+
                     initialize(latitude,longitude);
             
                     } 
@@ -71,4 +77,52 @@ $(document).ready(function () {
     $('#back').on('click', function(e) {
         location.href = '../'
     })
-});
+
+    // function userNameTractot(userId){
+    //         db.Users.find({_id: req.params.userId}, (error, users) => {
+    //           return(users.userName);
+    //         })
+    //     };
+
+    function loadComments(schoolId) {
+        $('#commentable').empty();
+         $.ajax({
+             method: "GET",
+             url: `/api/schools/${schoolId}/ratings`,
+
+             success: function(response){
+               console.log("success got data", response);
+               response.forEach(row => {
+                ///let userNName = userNameTractot(userId);
+                   $('#commentable').append(`<tr><td>${row.comments}</td><td>${row.rating}</td></tr>`);
+               });
+             },
+             error: function(error) {
+                 console.log("an error occurred", error);
+             }
+           });
+       }
+     
+     $('#newRatingForms').submit(function(e){
+        e.preventDefault();
+         console.log("trying here");
+         let userId = '5c6f53ca4f77011efc21a56b';
+         let data = {
+            rating: $('#rating').val(),
+            comments: $('#submiCommentt').val(),
+            ratingDate: new Date(),
+         }
+        $.ajax({
+            method: "POST",
+            url: `/api/schools/${listingUrl}/users/${userId}/ratings/`,
+            data: data, 
+            success: function(result){
+                 loadComments(result.school);
+            },
+            error: function(error) {
+                console.log("an error occurred", error);
+            }
+          });
+        })
+
+    })
