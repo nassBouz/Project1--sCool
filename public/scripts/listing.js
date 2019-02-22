@@ -14,12 +14,15 @@ $(document).ready(function () {
             $('.about').html(
                 `<h2>${res[0].schoolName}</h2>
                 <p>${res[0].aboutSchool}</p>`)
-            $('.school-img').html(
+            $('.school-img').prepend(
                 `<img src="../../../../images/placeholder.png">`
             )
             $('.address').html(
                 `<p>${address}</p>`
             )
+            $('.user-rating').append(`<p>${res[0].userRating}`)
+            $('.academic-rating').append(`<p>${res[0].academicRating}`)
+
             document.title = res[0].schoolName
             
             // most of the geocode code came from a stack overflow response to the problem, i worked
@@ -44,7 +47,7 @@ $(document).ready(function () {
                     });
 
                 var myOptions = {
-                zoom: 13,
+                zoom: 12,
                 center: latlng,
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
                 mapTypeControl: false
