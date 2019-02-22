@@ -107,7 +107,7 @@ const mySchools = [
       state:"CA",
       zipCode:94140
     },
-    district: "N/A",
+    district: "G/A School District",
     academicRating: 10,
     userRating: 5,
     schoolImg:"ga.png",

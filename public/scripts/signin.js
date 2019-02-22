@@ -75,7 +75,7 @@ $(document).ready(function () {
                 }
                 console.log(signedIn)
                 if (isAdmin) {
-                    location.href = "http://localhost:3000/admin"
+                    location.href = "/admin"
                 }
             },
             error: function(err){
