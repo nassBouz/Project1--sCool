@@ -156,10 +156,10 @@ const mySchools = [
     schoolName:"Southpark Elementary",
     aboutSchool: "Change the way you do business - adopt mobile propositions. Knowledge transfer synergies are becoming company-wide stakeholder experts. Efficiencies will come from strategically transforming our alignments. We aim to dynamically connect our standard setter by conservatively virtualising our customer-focused competitive stacks.",
     schoolAddress: {
-      streetAddress:"225",
-      city:"San Francisco",
-      state:"CA",
-      zipCode:94140
+      streetAddress:"100 panther way",
+      city:"woodland park",
+      state:"Co",
+      zipCode:80863
     },
     district: "Southpark School District",
     academicRating: 10,
