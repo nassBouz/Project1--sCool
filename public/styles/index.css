@@ -110,4 +110,9 @@ aside {
             text-align: center;
         }
 
+        #newSchoolForm {
+            display: flex;
+            
+        }
+
     /*  */

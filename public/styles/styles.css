@@ -135,12 +135,11 @@ footer p {
 
 }
 
-form {
-    display: flex;
-    flex-direction: column;
+#newSchoolForm {
+    margin: 0 auto;
 }
 
-form * {
+.signin-wrapper form * {
     margin: 2.5%;
 }
 
