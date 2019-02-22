@@ -325,7 +325,7 @@ $(document).ready(function() {
                 $('#streetAddress').val(response[0].schoolAddress.streetAddress);
                 $('#city').val(response[0].schoolAddress.city);
                 $('#state').val(response[0].schoolAddress.state);
-                $('#zipCode').val(response[0].schoolAddress.state);
+                $('#zipCode').val(response[0].schoolAddress.zipCode);
                 $('#district').val(response[0].district);
                 $('#academicRating').val(response[0].academicRating);
                   
