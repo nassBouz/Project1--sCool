@@ -14,7 +14,7 @@ $(document).ready(function() {
                   console.log("success got data response for users", response);
             
                   response.forEach(row => {
-                    $('#userTable').append('<tr><td>' + row.userName + '</td><td>' + row.role + '</td><td>' + row.avatar + '</td><td>' 
+                    $('#userTable').append('<tr><td>' + row.userName + '</td><td>' + row.password + '</td><td>'+ row.role + '</td><td>' + row.avatar + '</td><td>' 
                     + '<button id="' + row._id + '" class="btn btn-warning edituser">Edit</button>&nbsp;'
                     + '<button id="' + row._id + '" class="btn btn-danger deleteuser">Delete</button></td>'
                     +'</tr>');
@@ -97,6 +97,7 @@ $(document).ready(function() {
           
                     $('#userid').val(response[0]._id);
                     $('#userName').val(response[0].userName);
+                    $('#password').val(response[0].password);
                     $('#role').val(response[0].role);
                     $('#avatar').val(response[0].avatar);
                       
@@ -231,7 +232,9 @@ $(document).ready(function() {
               console.log("success got data response for schools", response);
         
               response.forEach(row => {
-                $('#schoolTable').append('<tr><td>' + row.schoolName + '</td><td>' + row.schoolAddress.city + '</td><td>' + row.district + '</td>'
+                $('#schoolTable').append('<tr><td>' + row.schoolName + '</td><td>' + row.schoolAddress.streetAddress 
+                + '</td><td>' + row.schoolAddress.city + '</td><td>' + row.schoolAddress.state + '</td><td>' 
+                + row.schoolAddress.zipCode + '</td><td>' + row.district + '</td>'
                 + '<td>' + row.academicRating + '</td><td>' 
                 + '<button id="' + row._id + '" class="btn btn-warning editschool">Edit</button>&nbsp;'
                 + '<button id="' + row._id + '" class="btn btn-danger deleteschool">Delete</button></td>'
@@ -285,7 +288,10 @@ $(document).ready(function() {
       function clearSchoolForm() {
         $('#schoolid').val('');
         $('#schoolName').val('');
+        $('#streetAddress').val('');
         $('#city').val('');
+        $('#state').val('');
+        $('#zipCode').val('');
         $('#district').val('');
         $('#academicRating').val('');
       }
@@ -316,7 +322,10 @@ $(document).ready(function() {
       
                 $('#schoolid').val(response[0]._id);
                 $('#schoolName').val(response[0].schoolName);
+                $('#streetAddress').val(response[0].schoolAddress.streetAddress);
                 $('#city').val(response[0].schoolAddress.city);
+                $('#state').val(response[0].schoolAddress.state);
+                $('#zipCode').val(response[0].schoolAddress.state);
                 $('#district').val(response[0].district);
                 $('#academicRating').val(response[0].academicRating);
                   
