@@ -60,6 +60,7 @@ aside {
         position: absolute;
         right: 1%;
         height: auto;
+        margin-top: 2em;
     }
 
     .about-wrapper * {
